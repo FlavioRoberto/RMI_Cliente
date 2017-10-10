@@ -5,13 +5,16 @@
  */
 package rmi.Model;
 
+import java.io.Serializable;
 import java.util.Date;
+
+
 
 /**
  *
  * @author Admin
  */
-public class OrdemServico {
+public class OrdemServico implements Serializable {
     private int idOrdemServico, idFuncionario, idCliente, idVenda;
     private Date dataExp, dataConclusao;
 
