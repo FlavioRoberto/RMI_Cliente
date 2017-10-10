@@ -9,6 +9,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 import rmi.Interface.IControllerBase;
 import rmi.Model.Pessoa;
 
@@ -28,10 +29,14 @@ public class RMI_Cliente {
             //criar objeto da interface, usa o lookpu para pegar a chave
             IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("chave");
             //chama metodo do servidor
-            Pessoa pessoa = (Pessoa)objetoRemoto.read(1);
+            System.out.println("Consultando...");
+            ArrayList<Object> pessoas = objetoRemoto.findByList("cpf", "cpf");
             //mostra a resposta do servidor
-            System.out.println(pessoa.getNome());
-        
+           
+            for(Object itemPessoa : pessoas ){
+                Pessoa itemConvertido = (Pessoa)itemPessoa;
+                System.out.println(itemConvertido.getNome());
+            }
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){

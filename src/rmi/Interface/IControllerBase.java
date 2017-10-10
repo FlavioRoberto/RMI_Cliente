@@ -7,6 +7,7 @@ package rmi.Interface;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +19,7 @@ public interface IControllerBase extends Remote {
     public Object read(int id) throws RemoteException;
     public String update(Object objecct) throws RemoteException;
     public String delete(int id) throws RemoteException;
-    public Object findBy(String campo,Object valor);
+    public Object findBy(String campo,Object valor)throws RemoteException;
+    public ArrayList<Object> findByList(String campo, Object valor)throws RemoteException;
  
 }
