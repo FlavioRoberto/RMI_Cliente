@@ -11,6 +11,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import rmi.Interface.IControllerBase;
+import rmi.Model.Funcionario;
 import rmi.Model.Pessoa;
 
 /**
@@ -27,16 +28,21 @@ public class RMI_Cliente {
             //cria conexao com a porta de comunicacao com o servidor
             Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("chave");
+            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("funcionario");
             //chama metodo do servidor
             System.out.println("Consultando...");
-            ArrayList<Object> pessoas = objetoRemoto.findByList("cpf", "cpf");
-            //mostra a resposta do servidor
-           
-            for(Object itemPessoa : pessoas ){
-                Pessoa itemConvertido = (Pessoa)itemPessoa;
-                System.out.println(itemConvertido.getNome());
-            }
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setCpf("cpf");
+            funcionario.setEspecialidade("especialidade");
+            funcionario.setNome("teste insere cliente");
+            funcionario.setRg("rg");
+            funcionario.setSalario(2000);
+            funcionario.setTelefone("telefone");
+
+        System.out.println(objetoRemoto.create(funcionario));
+            
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){
