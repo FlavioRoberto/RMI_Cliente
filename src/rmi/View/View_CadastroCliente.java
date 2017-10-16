@@ -34,11 +34,11 @@ public class View_CadastroCliente extends javax.swing.JFrame {
         FormattedTextField_Telefone = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
         TextField_Nome = new javax.swing.JTextField();
-        ComboBox_Cargo = new javax.swing.JComboBox();
         FormattedTextField_RG = new javax.swing.JFormattedTextField();
         FormattedTextField_CPF = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,10 +64,11 @@ public class View_CadastroCliente extends javax.swing.JFrame {
 
         jLabel8.setText("Nome:");
 
-        ComboBox_Cargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cargo", "Gerente", "Vendedor", "Produção" }));
-        ComboBox_Cargo.setToolTipText("");
-
-        FormattedTextField_RG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        try {
+            FormattedTextField_RG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         FormattedTextField_RG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FormattedTextField_RGActionPerformed(evt);
@@ -83,6 +84,8 @@ public class View_CadastroCliente extends javax.swing.JFrame {
         jLabel9.setText("CPF:");
 
         jLabel10.setText("RG:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,7 +114,7 @@ public class View_CadastroCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
-                        .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -138,7 +141,7 @@ public class View_CadastroCliente extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jLabel11)
                     .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(Btn_Cadastrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -192,12 +195,12 @@ public class View_CadastroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Cadastrar;
-    private javax.swing.JComboBox ComboBox_Cargo;
     private javax.swing.JFormattedTextField FormattedTextField_CPF;
     private javax.swing.JFormattedTextField FormattedTextField_RG;
     private javax.swing.JFormattedTextField FormattedTextField_Telefone;
     private javax.swing.JLabel Label_Cadastro_de_Cliente;
     private javax.swing.JTextField TextField_Nome;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

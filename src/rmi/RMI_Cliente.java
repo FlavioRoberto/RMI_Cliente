@@ -41,8 +41,8 @@ public class RMI_Cliente {
             funcionario.setSalario(2000);
             funcionario.setTelefone("telefone");
 
-        System.out.println(objetoRemoto.create(funcionario));
-            
+            System.out.println(objetoRemoto.create(funcionario));
+                        
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){
