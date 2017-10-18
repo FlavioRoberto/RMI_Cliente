@@ -10,7 +10,9 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
 import rmi.Model.Funcionario;
 import rmi.Model.Pessoa;
 
@@ -28,21 +30,17 @@ public class RMI_Cliente {
             //cria conexao com a porta de comunicacao com o servidor
             Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("funcionario");
+            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("cliente");
             //chama metodo do servidor
-            System.out.println("Consultando...");
+            System.out.println("Cadastrando...");
+            Cliente cliente = new Cliente();
+            cliente.setNome("nome");
+            cliente.setCpf("214214");
+            cliente.setRg("bdsdh");
+            cliente.setTelefone("dbshdsds");
+            cliente.setTipo("tipo");
             
-            Funcionario funcionario = new Funcionario();
-            
-            funcionario.setCpf("cpf");
-            funcionario.setEspecialidade("especialidade");
-            funcionario.setNome("teste insere cliente");
-            funcionario.setRg("rg");
-            funcionario.setSalario(2000);
-            funcionario.setTelefone("telefone");
-
-            System.out.println(objetoRemoto.create(funcionario));
-                        
+            JOptionPane.showMessageDialog(null, objetoRemoto.create(cliente), null,JOptionPane.INFORMATION_MESSAGE);            
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){
