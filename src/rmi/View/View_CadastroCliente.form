@@ -49,7 +49,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="ComboBox_Cargo" min="-2" max="-2" attributes="0"/>
+=======
+                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+>>>>>>> parent of ef3d768... Cadastro de Cliente Finalizado
                   </Group>
               </Group>
               <EmptySpace pref="30" max="32767" attributes="0"/>
@@ -83,7 +87,11 @@
                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FormattedTextField_Telefone" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="ComboBox_Cargo" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> parent of ef3d768... Cadastro de Cliente Finalizado
               </Group>
               <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
               <Component id="Btn_Cadastrar" min="-2" max="-2" attributes="0"/>
@@ -173,5 +181,20 @@
         <Property name="text" type="java.lang.String" value="RG:"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
+=======
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+>>>>>>> parent of ef3d768... Cadastro de Cliente Finalizado
   </SubComponents>
 </Form>

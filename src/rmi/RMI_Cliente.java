@@ -31,6 +31,7 @@ public class RMI_Cliente {
             IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("funcionario");
             //chama metodo do servidor
             System.out.println("Consultando...");
+<<<<<<< HEAD
             
             Funcionario funcionario = new Funcionario();
             
@@ -43,6 +44,20 @@ public class RMI_Cliente {
 
         System.out.println(objetoRemoto.create(funcionario));
             
+=======
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setCpf("cpf");
+            funcionario.setEspecialidade("especialidade");
+            funcionario.setNome("teste insere cliente");
+            funcionario.setRg("rg");
+            funcionario.setSalario(2000);
+            funcionario.setTelefone("telefone");
+
+            System.out.println(objetoRemoto.create(funcionario));
+                        
+>>>>>>> parent of ef3d768... Cadastro de Cliente Finalizado
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){
