@@ -30,17 +30,12 @@ public class RMI_Cliente {
             //cria conexao com a porta de comunicacao com o servidor
             Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("cliente");
+            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("pessoa");
             //chama metodo do servidor
             System.out.println("Cadastrando...");
-            Cliente cliente = new Cliente();
-            cliente.setNome("nome");
-            cliente.setCpf("214214");
-            cliente.setRg("bdsdh");
-            cliente.setTelefone("dbshdsds");
-            cliente.setTipo("tipo");
-            
-            JOptionPane.showMessageDialog(null, objetoRemoto.create(cliente), null,JOptionPane.INFORMATION_MESSAGE);            
+            Pessoa p = new Pessoa();
+            p = (Pessoa)objetoRemoto.findBy("cpf", "11111111111");   
+            System.out.print(p.getNome());
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){

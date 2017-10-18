@@ -48,7 +48,7 @@ public class View_CadastroProduto extends javax.swing.JFrame {
         Label_Cadastro_de_Produto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Label_Cadastro_de_Produto.setText("Cadastro de Produto");
 
-        FormattedTextField_Preco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        FormattedTextField_Preco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         FormattedTextField_Preco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FormattedTextField_PrecoActionPerformed(evt);
