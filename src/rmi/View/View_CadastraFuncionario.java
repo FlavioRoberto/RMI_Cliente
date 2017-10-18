@@ -5,6 +5,14 @@
  */
 package rmi.View;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Funcionario;
+
 /**
  *
  * @author Bruno
@@ -115,17 +123,16 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(142, 142, 142)
-                                            .addComponent(Btn_Cadastrar))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(FormattedTextField_Telefone)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel12)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(FormattedTextField_Telefone)
                                     .addGap(18, 18, 18)
-                                    .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel12)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(60, 60, 60))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(142, 142, 142)
+                                    .addComponent(Btn_Cadastrar))))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(106, 106, 106)
                             .addComponent(jLabel3)
@@ -159,7 +166,7 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
                     .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(36, 36, 36)
+                .addGap(42, 42, 42)
                 .addComponent(Btn_Cadastrar)
                 .addGap(113, 113, 113)
                 .addComponent(jLabel5)
@@ -174,9 +181,61 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_FormattedTextField_RGActionPerformed
 
     private void Btn_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CadastrarActionPerformed
-        // TODO add your handling code here:
+        valoresDosCampos();
     }//GEN-LAST:event_Btn_CadastrarActionPerformed
 
+    //Metodo para recuperar os valores digitados nos campos e verificar se algum campo ficou vazio
+    private void valoresDosCampos(){
+        String nome = TextField_Nome.getText().toString();
+        String cpf = FormattedTextField_CPF.getText().toString();
+        String rg = FormattedTextField_RG.getText().toString();
+        String telefone = FormattedTextField_Telefone.getText().toString();
+        String cargo = ComboBox_Cargo.getSelectedItem().toString();
+        String especialidade = null;
+        if(cargo.equals("Cargo")){
+            JOptionPane.showMessageDialog(null, "É necessário escolher um cargo!", null,JOptionPane.ERROR_MESSAGE);
+        }else if(cargo.equals("Gerente")){
+            especialidade = "Gerente";
+        }else if(cargo.equals("Vendedor")){
+            especialidade = "Vendedor";
+        }else if(cargo.equals("Produção")){
+            especialidade = "Produção";
+        }
+        
+        if(!nome.equals(null) && !cpf.equals(null) && !rg.equals(null) && 
+                !telefone.equals(null) && !especialidade.equals(null)){
+            cadastraFuncionario(nome, cpf, rg, telefone, especialidade);
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void cadastraFuncionario(String nome, String cpf, String rg, String telefone, String especialidade){
+        try{
+            //cria conexao com a porta de comunicacao com o servidor
+            Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("funcionario");
+            //chama metodo do servidor
+            System.out.println("Cadastrando...");
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setCpf(cpf);
+            funcionario.setEspecialidade(especialidade);
+            funcionario.setNome(nome);
+            funcionario.setRg(rg);
+            funcionario.setSalario(2000);
+            funcionario.setTelefone(telefone);
+            JOptionPane.showMessageDialog(null, objetoRemoto.create(funcionario), null,JOptionPane.INFORMATION_MESSAGE);
+                        
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        } 
+    }
+    
     /**
      * @param args the command line arguments
      */

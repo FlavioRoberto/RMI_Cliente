@@ -5,6 +5,15 @@
  */
 package rmi.View;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
+import rmi.Model.Produto;
+
 /**
  *
  * @author Bruno
@@ -39,7 +48,7 @@ public class View_CadastroProduto extends javax.swing.JFrame {
         Label_Cadastro_de_Produto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Label_Cadastro_de_Produto.setText("Cadastro de Produto");
 
-        FormattedTextField_Preco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        FormattedTextField_Preco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         FormattedTextField_Preco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FormattedTextField_PrecoActionPerformed(evt);
@@ -47,6 +56,11 @@ public class View_CadastroProduto extends javax.swing.JFrame {
         });
 
         Btn_Cadastrar_Produto.setText("Cadastrar");
+        Btn_Cadastrar_Produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Cadastrar_ProdutoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nome:");
 
@@ -100,6 +114,42 @@ public class View_CadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FormattedTextField_PrecoActionPerformed
 
+    private void Btn_Cadastrar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Cadastrar_ProdutoActionPerformed
+        valoresDosCampos();
+    }//GEN-LAST:event_Btn_Cadastrar_ProdutoActionPerformed
+
+    private void valoresDosCampos(){
+        String nome = TextField_Nome_Produto.getText().toString();
+        String aux = FormattedTextField_Preco.getText().toString();
+        float preco = Float.parseFloat(aux);
+        
+        if(!nome.equals(null) && preco >= 0){
+            cadastraProduto(nome, preco);
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void cadastraProduto(String nome, float preco){
+        try{
+            //cria conexao com a porta de comunicacao com o servidor
+            Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("produto");
+            //chama metodo do servidor
+            System.out.println("Cadastrando...");
+            Produto produto = new Produto();
+            produto.setNome(nome);
+            produto.setPreco(preco);
+            
+            JOptionPane.showMessageDialog(null, objetoRemoto.create(produto), null,JOptionPane.INFORMATION_MESSAGE);            
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
