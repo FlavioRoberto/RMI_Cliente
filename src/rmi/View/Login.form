@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="autoRequestFocus" type="boolean" value="false"/>
@@ -37,20 +37,17 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TextField_Senha" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="TextField_Nome" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="FormattedTextField_Cpf" pref="190" max="32767" attributes="0"/>
+                          <Component id="PasswordField_Senha" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Button_Acessar" min="-2" max="-2" attributes="0"/>
-                          <Component id="ComboBox_Cargo" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="Button_Acessar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="95" max="32767" attributes="0"/>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,19 +58,17 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TextField_Nome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="FormattedTextField_Cpf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TextField_Senha" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PasswordField_Senha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="ComboBox_Cargo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="Button_Acessar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,38 +83,6 @@
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextField_Nome">
-      <Properties>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Texto"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="TextField_Nome" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextField_NomeActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="TextField_Senha">
-    </Component>
-    <Component class="javax.swing.JComboBox" name="ComboBox_Cargo">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Cargo"/>
-            <StringItem index="1" value="Gerente"/>
-            <StringItem index="2" value="Vendedor"/>
-            <StringItem index="3" value="Produ&#xe7;&#xe3;o"/>
-          </StringArray>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-        <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="jLabel1"/>
-        </Property>
-      </AccessibilityProperties>
-    </Component>
     <Component class="javax.swing.JButton" name="Button_Acessar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Acessar"/>
@@ -130,13 +93,22 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
+        <Property name="text" type="java.lang.String" value="Cpf:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Senha"/>
+        <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="FormattedTextField_Cpf">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="###########" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="PasswordField_Senha">
     </Component>
   </SubComponents>
 </Form>

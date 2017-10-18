@@ -5,8 +5,15 @@
  */
 package rmi.View;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
 import rmi.Model.Funcionario;
+import rmi.Model.Pessoa;
 
 /**
  *
@@ -31,12 +38,11 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        TextField_Nome = new javax.swing.JTextField();
-        TextField_Senha = new javax.swing.JTextField();
-        ComboBox_Cargo = new javax.swing.JComboBox();
         Button_Acessar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        FormattedTextField_Cpf = new javax.swing.JFormattedTextField();
+        PasswordField_Senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -45,17 +51,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Login");
         jLabel1.setName(""); // NOI18N
 
-        TextField_Nome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        TextField_Nome.setName("TextField_Nome"); // NOI18N
-        TextField_Nome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextField_NomeActionPerformed(evt);
-            }
-        });
-
-        ComboBox_Cargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cargo", "Gerente", "Vendedor", "Produção" }));
-        ComboBox_Cargo.setToolTipText("");
-
         Button_Acessar.setText("Acessar");
         Button_Acessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,9 +58,15 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Nome");
+        jLabel2.setText("Cpf:");
 
-        jLabel3.setText("Senha");
+        jLabel3.setText("Senha:");
+
+        try {
+            FormattedTextField_Cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,15 +83,13 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextField_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(FormattedTextField_Cpf, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(PasswordField_Senha)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Button_Acessar)
-                            .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(95, Short.MAX_VALUE))
+                        .addGap(162, 162, 162)
+                        .addComponent(Button_Acessar)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,45 +98,46 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(FormattedTextField_Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextField_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(PasswordField_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Button_Acessar)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
-
-        ComboBox_Cargo.getAccessibleContext().setAccessibleName("");
-        ComboBox_Cargo.getAccessibleContext().setAccessibleParent(jLabel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextField_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_NomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextField_NomeActionPerformed
-
     private void Button_AcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_AcessarActionPerformed
-        Funcionario funcionario = new Funcionario();
-        String nome = TextField_Nome.getText().toString().toUpperCase();
-        String senha = TextField_Senha.getText().toString();
-        String cargo = ComboBox_Cargo.getSelectedItem().toString();
-        if(cargo.equals("Cargo")){
-            JOptionPane.showMessageDialog(null, "Selecione o Cargo!");
-        }else if(cargo.equals("Gerente")){
-            funcionario.setEspecialidade("Gerente");
-        }else if(cargo.equals("Vendedor")){
-            funcionario.setEspecialidade("Vendedor");
-        }else if(cargo.equals("Produção")){
-            funcionario.setEspecialidade("Produção");
-        }
+        valoresDosCampos();
     }//GEN-LAST:event_Button_AcessarActionPerformed
 
+    private void valoresDosCampos(){
+        String cpf = FormattedTextField_Cpf.getText().toString();
+        readCpf(cpf);
+    }
+    
+    private void readCpf(String cpf){
+        try{
+            //cria conexao com a porta de comunicacao com o servidor
+            Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("pessoa");
+            //chama metodo do servidor
+            System.out.println("Consultando...");
+            
+            JOptionPane.showMessageDialog(null,(Pessoa)objetoRemoto.findBy("cpf", cpf), null,JOptionPane.INFORMATION_MESSAGE);
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -177,9 +177,8 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Acessar;
-    private javax.swing.JComboBox ComboBox_Cargo;
-    private javax.swing.JTextField TextField_Nome;
-    private javax.swing.JTextField TextField_Senha;
+    private javax.swing.JFormattedTextField FormattedTextField_Cpf;
+    private javax.swing.JPasswordField PasswordField_Senha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
