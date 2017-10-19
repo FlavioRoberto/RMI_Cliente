@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import rmi.Interface.IControllerBase;
 import rmi.Model.Cliente;
 import rmi.Model.Produto;
+import rmi.Util.conexao_server;
 
 /**
  *
@@ -132,10 +133,8 @@ public class View_CadastroProduto extends javax.swing.JFrame {
     
     private void cadastraProduto(String nome, float preco){
         try{
-            //cria conexao com a porta de comunicacao com o servidor
-            Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("produto");
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("produto");
             //chama metodo do servidor
             System.out.println("Cadastrando...");
             Produto produto = new Produto();

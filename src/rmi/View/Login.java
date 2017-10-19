@@ -129,8 +129,8 @@ public class Login extends javax.swing.JFrame {
             IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("pessoa");
             //chama metodo do servidor
             System.out.println("Consultando...");
-            
-            JOptionPane.showMessageDialog(null,(Pessoa)objetoRemoto.findBy("cpf", cpf), null,JOptionPane.INFORMATION_MESSAGE);
+            Pessoa p = new Pessoa();
+            p = (Pessoa)objetoRemoto.findBy("cpf", "11111111111");
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){

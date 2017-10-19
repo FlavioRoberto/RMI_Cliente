@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import rmi.Interface.IControllerBase;
 import rmi.Model.Cliente;
 import rmi.Model.Funcionario;
+import rmi.Util.conexao_server;
 
 /**
  *
@@ -194,10 +195,8 @@ public class View_CadastroCliente extends javax.swing.JFrame {
      
     private void cadastraCliente(String nome, String cpf, String rg, String telefone, String tipo){
         try{
-            //cria conexao com a porta de comunicacao com o servidor
-            Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("cliente");
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
             //chama metodo do servidor
             System.out.println("Cadastrando...");
             Cliente cliente = new Cliente();
