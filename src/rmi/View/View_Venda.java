@@ -5,6 +5,15 @@
  */
 package rmi.View;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
+import rmi.Model.Pessoa;
+import rmi.Model.Produto;
+import rmi.Util.conexao_server;
+
 /**
  *
  * @author Bruno
@@ -14,6 +23,9 @@ public class View_Venda extends javax.swing.JFrame {
     /**
      * Creates new form View_Venda
      */
+    
+    private int IDPessoa;
+    
     public View_Venda() {
         initComponents();
         Panel_Venda.setVisible(false);
@@ -205,7 +217,7 @@ public class View_Venda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PesquisarActionPerformed
-        String cpf = TextField_Cpf.getText().toString();
+        valoresDosCampos();
         //se o cpf existir, o Panel de venda é aberto
         Panel_Venda.setVisible(true);
     }//GEN-LAST:event_Btn_PesquisarActionPerformed
@@ -218,6 +230,42 @@ public class View_Venda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_IDProdutoActionPerformed
 
+    private void valoresDosCampos(){
+       String cpf = TextField_Cpf.getText().toString();
+       if(!cpf.equals(null)){
+           pesquisaCliente(cpf);
+       }else{
+           JOptionPane.showMessageDialog(null, "É necessário preencher o campo!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+       }
+    }
+    
+    private void pesquisaCliente(String cpf){
+        try{
+            Pessoa pessoa = new Pessoa();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("pessoa");
+            System.out.println("Consultando...");
+            pessoa = (Pessoa) objetoRemoto.findBy("cpf", cpf);
+            //Passa o id da pessoa para o atributo
+            IDPessoa = pessoa.getIdPessoa();
+            if(IDPessoa == 0){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else{
+                //se o id for encontrado, os campos para edição são ativados
+                Panel_Venda.setVisible(true);
+                
+            }
+                                   
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
