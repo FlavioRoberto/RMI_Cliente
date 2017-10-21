@@ -6,16 +6,17 @@
 package rmi.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
  * @author Admin
  */
 public class Servico implements Serializable {
-    private int idServico;
-    private OrdemServico ordemServico;
-    private String descricao;
-    private float valor;
+    private int idServico,idOS;
+    private Date dataConclusao;
+    
+    
 
     public int getIdServico() {
         return idServico;
@@ -25,29 +26,19 @@ public class Servico implements Serializable {
         this.idServico = idServico;
     }
 
-    public OrdemServico getOrdemServico() {
-        return ordemServico;
+    public int getIdOS() {
+        return idOS;
     }
 
-    public void setOrdemServico(OrdemServico ordemServico) {
-        this.ordemServico = ordemServico;
+    public void setIdOS(int idOS) {
+        this.idOS = idOS;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public Date getDataConclusao() {
+        return dataConclusao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public float getValor() {
-        return valor;
-    }
-
-    public void setValor(float valor) {
-        this.valor = valor;
-    }
-    
-    
+    public void setDataConclusao(Date dataConclusao) {
+        this.dataConclusao = dataConclusao;
+    } 
 }
