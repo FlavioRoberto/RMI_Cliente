@@ -214,13 +214,7 @@ public class View_Venda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PesquisarActionPerformed
-<<<<<<< HEAD
         valoresDosCampos();       
-=======
-        valoresDosCampos();
-        //se o cpf existir, o Panel de venda é aberto
-        Panel_Venda.setVisible(true);
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
     }//GEN-LAST:event_Btn_PesquisarActionPerformed
 
     private void TextField_CpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_CpfActionPerformed
@@ -231,7 +225,6 @@ public class View_Venda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_IDProdutoActionPerformed
 
-<<<<<<< HEAD
     private void btn_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdicionarActionPerformed
         pesquisaProduto();
     }//GEN-LAST:event_btn_AdicionarActionPerformed
@@ -240,23 +233,13 @@ public class View_Venda extends javax.swing.JFrame {
        String cpf = TextField_Cpf.getText().toString();
        if(!cpf.equals(null)){
            pesquisaPessoa(cpf);
-=======
-    private void valoresDosCampos(){
-       String cpf = TextField_Cpf.getText().toString();
-       if(!cpf.equals(null)){
-           pesquisaCliente(cpf);
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
        }else{
            JOptionPane.showMessageDialog(null, "É necessário preencher o campo!", 
                         null,JOptionPane.ERROR_MESSAGE);
        }
     }
     
-<<<<<<< HEAD
     private void pesquisaPessoa(String cpf){
-=======
-    private void pesquisaCliente(String cpf){
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
         try{
             Pessoa pessoa = new Pessoa();
             //criar objeto da interface, usa o lookpu para pegar a chave
@@ -270,7 +253,6 @@ public class View_Venda extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
                         null,JOptionPane.ERROR_MESSAGE);
             }else{
-<<<<<<< HEAD
                 //se o cpf de pessoa for encontrado, é pesquisado se ele corresponde a uma cliente
                 pesquisaCliente(IDPessoa);
             }
@@ -296,11 +278,6 @@ public class View_Venda extends javax.swing.JFrame {
             }else if(cliente.getIdCliente() != 0){
                 //se o id for encontrado, os campos para edição são ativados
                 Panel_Venda.setVisible(true);
-=======
-                //se o id for encontrado, os campos para edição são ativados
-                Panel_Venda.setVisible(true);
-                
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
             }
                                    
         }catch(RemoteException e){
@@ -310,7 +287,6 @@ public class View_Venda extends javax.swing.JFrame {
         }
     }
     
-<<<<<<< HEAD
     private void pesquisaProduto(){       
         try{
             String aux = TextField_IDProduto.getText().toString();
@@ -342,8 +318,6 @@ public class View_Venda extends javax.swing.JFrame {
         }
     }
     
-=======
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
     /**
      * @param args the command line arguments
      */

@@ -28,15 +28,11 @@ public class View_Gerente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< HEAD
         Button_CadastraFuncionario1 = new javax.swing.JButton();
-=======
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
         Button_CadastraFuncionario = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         Button_CadastraProduto = new javax.swing.JButton();
         Button_CadastraCliente = new javax.swing.JButton();
-<<<<<<< HEAD
         Button_EditaFuncionario = new javax.swing.JButton();
         Button_EditarProduto = new javax.swing.JButton();
         Button_EditarCliente = new javax.swing.JButton();
@@ -51,10 +47,6 @@ public class View_Gerente extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-=======
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
         setTitle("Gerente");
         setResizable(false);
 
@@ -66,7 +58,6 @@ public class View_Gerente extends javax.swing.JFrame {
         });
 
         Button_CadastraProduto.setText("Cadastrar Produto");
-<<<<<<< HEAD
         Button_CadastraProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_CadastraProdutoActionPerformed(evt);
@@ -107,16 +98,11 @@ public class View_Gerente extends javax.swing.JFrame {
                 Button_EncerraSessaoActionPerformed(evt);
             }
         });
-=======
-
-        Button_CadastraCliente.setText("Cadastrar Cliente");
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -137,17 +123,6 @@ public class View_Gerente extends javax.swing.JFrame {
                         .addComponent(Button_EditarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(jSeparator2)
-=======
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(Button_CadastraFuncionario)
-                .addGap(18, 18, 18)
-                .addComponent(Button_CadastraProduto)
-                .addGap(18, 18, 18)
-                .addComponent(Button_CadastraCliente)
-                .addContainerGap(19, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +134,6 @@ public class View_Gerente extends javax.swing.JFrame {
                     .addComponent(Button_CadastraCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_EditaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,12 +148,6 @@ public class View_Gerente extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-=======
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-
-        pack();
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_CadastraFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraFuncionarioActionPerformed
@@ -187,7 +155,6 @@ public class View_Gerente extends javax.swing.JFrame {
         view.setVisible(true);
     }//GEN-LAST:event_Button_CadastraFuncionarioActionPerformed
 
-<<<<<<< HEAD
     private void Button_CadastraProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraProdutoActionPerformed
         View_CadastroProduto view = new View_CadastroProduto();
         view.setVisible(true);
@@ -223,8 +190,6 @@ public class View_Gerente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_Button_EncerraSessaoActionPerformed
 
-=======
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
     /**
      * @param args the command line arguments
      */
@@ -263,7 +228,6 @@ public class View_Gerente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_CadastraCliente;
     private javax.swing.JButton Button_CadastraFuncionario;
-<<<<<<< HEAD
     private javax.swing.JButton Button_CadastraFuncionario1;
     private javax.swing.JButton Button_CadastraProduto;
     private javax.swing.JButton Button_EditaFuncionario;
@@ -272,9 +236,5 @@ public class View_Gerente extends javax.swing.JFrame {
     private javax.swing.JButton Button_EncerraSessao;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-=======
-    private javax.swing.JButton Button_CadastraProduto;
-    private javax.swing.JSeparator jSeparator1;
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
     // End of variables declaration//GEN-END:variables
 }

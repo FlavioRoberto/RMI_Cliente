@@ -47,11 +47,7 @@ public class Login extends javax.swing.JFrame {
         FormattedTextField_Cpf = new javax.swing.JFormattedTextField();
         PasswordField_Senha = new javax.swing.JPasswordField();
 
-<<<<<<< HEAD
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-=======
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
         setTitle("Login");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
@@ -136,7 +132,6 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,
                     JOptionPane.ERROR_MESSAGE);
         }
-<<<<<<< HEAD
     }
     
     private void verificaCredencial(String cpf, String senha){
@@ -167,38 +162,6 @@ public class Login extends javax.swing.JFrame {
             IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("funcionario");
             //chama metodo do servidor
             System.out.println("Consultando...");
-=======
-    }
-    
-    private void verificaCredencial(String cpf, String senha){
-        try{
-            //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("pessoa");
-            //chama metodo do servidor
-            System.out.println("Consultando...");
-            Pessoa pessoa = new Pessoa();
-            pessoa = (Pessoa) objetoRemoto.findBy("cpf", cpf);
-            if(!pessoa.getCpf().equals("0")){
-                //JOptionPane.showMessageDialog(null, pessoa.getNome(), null,JOptionPane.INFORMATION_MESSAGE);
-                pesquisaFuncionario(pessoa.getIdPessoa(), senha);
-            }else{
-                JOptionPane.showMessageDialog(null, "CPF não encontrado!", null,JOptionPane.ERROR_MESSAGE);
-            }
-                         
-        }catch(RemoteException e){
-            System.out.println(e.getMessage());
-        }catch(NotBoundException e){
-            System.out.println(e.getMessage());
-        } 
-    }
-    
-    private void pesquisaFuncionario(int idPessoa, String senha){
-        try{
-            //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("funcionario");
-            //chama metodo do servidor
-            System.out.println("Consultando...");
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
             Funcionario funcionario = new Funcionario();
             funcionario = (Funcionario) objetoRemoto.findBy("Pessoa_idPessoa", idPessoa);
             Login telaLogin = new Login(); 
@@ -214,11 +177,7 @@ public class Login extends javax.swing.JFrame {
                         //acessa tela da produção
                         View_Producao view = new View_Producao();
                         view.setVisible(true);
-<<<<<<< HEAD
                         dispose();
-=======
-                        telaLogin.setVisible(false);
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
                     }else if(funcionario.getEspecialidade().equals("Gerente")){
                         //acessa tela do gerente
                         View_Gerente view = new View_Gerente();

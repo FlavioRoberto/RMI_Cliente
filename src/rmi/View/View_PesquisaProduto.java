@@ -52,12 +52,8 @@ public class View_PesquisaProduto extends javax.swing.JFrame {
         Button_Editar = new javax.swing.JButton();
         Button_Excluir = new javax.swing.JButton();
 
-<<<<<<< HEAD
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
-=======
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Edita Produto");
@@ -168,10 +164,7 @@ public class View_PesquisaProduto extends javax.swing.JFrame {
         );
 
         pack();
-<<<<<<< HEAD
         setLocationRelativeTo(null);
-=======
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_PesquisarActionPerformed

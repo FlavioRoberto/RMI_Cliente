@@ -2,11 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-<<<<<<< HEAD
     <Property name="defaultCloseOperation" type="int" value="2"/>
-=======
-    <Property name="defaultCloseOperation" type="int" value="3"/>
->>>>>>> 093338bc58ad35bbc8bdeb4692284de21e54bb97
     <Property name="title" type="java.lang.String" value="Login"/>
     <Property name="alwaysOnTop" type="boolean" value="true"/>
     <Property name="autoRequestFocus" type="boolean" value="false"/>
