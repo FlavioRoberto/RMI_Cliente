@@ -5,15 +5,18 @@
  */
 package rmi.View;
 
+import java.awt.event.WindowEvent;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import rmi.Interface.IControllerBase;
 import rmi.Model.Cliente;
 import rmi.Model.Funcionario;
 import rmi.Model.Pessoa;
+import rmi.Util.conexao_server;
 
 /**
  *
@@ -23,7 +26,7 @@ public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
-     */
+     */   
     public Login() {
         initComponents();
     }
@@ -44,8 +47,11 @@ public class Login extends javax.swing.JFrame {
         FormattedTextField_Cpf = new javax.swing.JFormattedTextField();
         PasswordField_Senha = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Login");
+        setAlwaysOnTop(true);
         setAutoRequestFocus(false);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Login");
@@ -104,12 +110,13 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(PasswordField_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(Button_Acessar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_AcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_AcessarActionPerformed
@@ -118,19 +125,75 @@ public class Login extends javax.swing.JFrame {
 
     private void valoresDosCampos(){
         String cpf = FormattedTextField_Cpf.getText().toString();
-        readCpf(cpf);
+        String senha = PasswordField_Senha.getText().toString();
+        if(!cpf.equals("") && !senha.equals("")){
+            verificaCredencial(cpf, senha);
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
     
-    private void readCpf(String cpf){
+    private void verificaCredencial(String cpf, String senha){
         try{
-            //cria conexao com a porta de comunicacao com o servidor
-            Registry conexao = LocateRegistry.getRegistry("127.0.0.1",1500);
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("pessoa");
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("pessoa");
             //chama metodo do servidor
             System.out.println("Consultando...");
-            Pessoa p = new Pessoa();
-            p = (Pessoa)objetoRemoto.findBy("cpf", "11111111111");
+            Pessoa pessoa = new Pessoa();
+            pessoa = (Pessoa) objetoRemoto.findBy("cpf", cpf);
+            if(!pessoa.getCpf().equals("0")){
+                //JOptionPane.showMessageDialog(null, pessoa.getNome(), null,JOptionPane.INFORMATION_MESSAGE);
+                pesquisaFuncionario(pessoa.getIdPessoa(), senha);
+            }else{
+                JOptionPane.showMessageDialog(null, "CPF não encontrado!", null,JOptionPane.ERROR_MESSAGE);
+            }
+                         
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        } 
+    }
+    
+    private void pesquisaFuncionario(int idPessoa, String senha){
+        try{
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("funcionario");
+            //chama metodo do servidor
+            System.out.println("Consultando...");
+            Funcionario funcionario = new Funcionario();
+            funcionario = (Funcionario) objetoRemoto.findBy("Pessoa_idPessoa", idPessoa);
+            Login telaLogin = new Login(); 
+            
+            if(funcionario.getIdFuncionario() != 0){
+                if(funcionario.getSenha().equals(senha)){
+                    if(funcionario.getEspecialidade().equals("Vendedor")){
+                        //acessa tela do vendedor
+                        View_Vendedor view = new View_Vendedor();
+                        view.setVisible(true);
+                        dispose();
+                    }else if(funcionario.getEspecialidade().equals("Produção")){
+                        //acessa tela da produção
+                        View_Producao view = new View_Producao();
+                        view.setVisible(true);
+                        dispose();
+                    }else if(funcionario.getEspecialidade().equals("Gerente")){
+                        //acessa tela do gerente
+                        View_Gerente view = new View_Gerente();
+                        view.setVisible(true);
+                        dispose();
+                    }else{
+                       JOptionPane.showMessageDialog(null, "CPF não corresponde à um funcionário!"
+                               , null,JOptionPane.ERROR_MESSAGE); 
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Senha inválida!", null,JOptionPane.ERROR_MESSAGE);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "CPF não encontrado!", null,JOptionPane.ERROR_MESSAGE);
+            }
+                         
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){

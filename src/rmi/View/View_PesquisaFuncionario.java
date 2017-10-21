@@ -58,10 +58,11 @@ public class View_PesquisaFuncionario extends javax.swing.JFrame {
         Button_Excluir = new javax.swing.JButton();
         FormattedTextField_CpfFuncionario = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Pesquisar Funcionário");
+        jLabel1.setText("Edita Funcionário");
 
         jLabel2.setText("CPF:");
 
@@ -141,20 +142,19 @@ public class View_PesquisaFuncionario extends javax.swing.JFrame {
                                 .addGroup(Panel_DadosFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Button_Editar)
                                     .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(4, 4, 4)
                         .addGroup(Panel_DadosFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Panel_DadosFuncionarioLayout.createSequentialGroup()
-                                .addGap(14, 14, 14)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(ComboBox_Especialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Panel_DadosFuncionarioLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                .addGap(12, 12, 12)
                                 .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Panel_DadosFuncionarioLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
+                                .addGap(33, 33, 33)
                                 .addComponent(Button_Excluir))))
                     .addGroup(Panel_DadosFuncionarioLayout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -193,21 +193,23 @@ public class View_PesquisaFuncionario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(FormattedTextField_Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button_Pesquisar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(39, 39, 39)))
-                .addContainerGap(92, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Panel_DadosFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(Panel_DadosFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(FormattedTextField_Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button_Pesquisar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(148, 148, 148)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -226,6 +228,7 @@ public class View_PesquisaFuncionario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_PesquisarActionPerformed
@@ -361,9 +364,9 @@ public class View_PesquisaFuncionario extends javax.swing.JFrame {
           IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("funcionario"); 
           System.out.println("Apagando Funcionario...");
           funcionario.setIdFuncionario(IDFuncionario);
-          funcionario.setIdPessoa(IDPessoa);
-          JOptionPane.showMessageDialog(null, objetoRemoto.delete(IDFuncionario), 
+          JOptionPane.showMessageDialog(null, objetoRemoto.delete(IDPessoa), 
                         null,JOptionPane.INFORMATION_MESSAGE);
+          Panel_DadosFuncionario.setVisible(false);
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){

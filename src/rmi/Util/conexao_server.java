@@ -22,7 +22,7 @@ public class conexao_server {
     public static Registry conexao(){
         try{
             //cria conexao com a porta de comunicacao com o servidor
-            conexao = LocateRegistry.getRegistry("127.0.0.1", 1500);
+            conexao = LocateRegistry.getRegistry("192.168.0.103", 1500);
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }

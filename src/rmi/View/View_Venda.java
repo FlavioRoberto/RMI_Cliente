@@ -5,6 +5,15 @@
  */
 package rmi.View;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
+import rmi.Model.Pessoa;
+import rmi.Model.Produto;
+import rmi.Util.conexao_server;
+
 /**
  *
  * @author Bruno
@@ -14,6 +23,9 @@ public class View_Venda extends javax.swing.JFrame {
     /**
      * Creates new form View_Venda
      */
+    
+    private int IDPessoa;
+    
     public View_Venda() {
         initComponents();
         Panel_Venda.setVisible(false);
@@ -93,11 +105,7 @@ public class View_Venda extends javax.swing.JFrame {
 
         jLabel3.setText("ID do Produto:");
 
-        try {
-            TextField_IDProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        TextField_IDProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         TextField_IDProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextField_IDProdutoActionPerformed(evt);
@@ -105,17 +113,18 @@ public class View_Venda extends javax.swing.JFrame {
         });
 
         btn_Adicionar.setText("Adicionar");
+        btn_Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AdicionarActionPerformed(evt);
+            }
+        });
 
         Label_ProdutoNaoEncontrado.setForeground(new java.awt.Color(204, 0, 0));
         Label_ProdutoNaoEncontrado.setText("Produto não Encontrado!");
 
         jLabel4.setText("Quantidade:");
 
-        try {
-            TextField_Quantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        TextField_Quantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         btn_GerarOrdem.setText("Gerar Ordem");
 
@@ -164,7 +173,7 @@ public class View_Venda extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_GerarOrdem)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -198,16 +207,14 @@ public class View_Venda extends javax.swing.JFrame {
                     .addComponent(Btn_Pesquisar))
                 .addGap(18, 18, 18)
                 .addComponent(Panel_Venda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PesquisarActionPerformed
-        String cpf = TextField_Cpf.getText().toString();
-        //se o cpf existir, o Panel de venda é aberto
-        Panel_Venda.setVisible(true);
+        valoresDosCampos();       
     }//GEN-LAST:event_Btn_PesquisarActionPerformed
 
     private void TextField_CpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_CpfActionPerformed
@@ -218,6 +225,99 @@ public class View_Venda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_IDProdutoActionPerformed
 
+    private void btn_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdicionarActionPerformed
+        pesquisaProduto();
+    }//GEN-LAST:event_btn_AdicionarActionPerformed
+
+    private void valoresDosCampos(){
+       String cpf = TextField_Cpf.getText().toString();
+       if(!cpf.equals(null)){
+           pesquisaPessoa(cpf);
+       }else{
+           JOptionPane.showMessageDialog(null, "É necessário preencher o campo!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+       }
+    }
+    
+    private void pesquisaPessoa(String cpf){
+        try{
+            Pessoa pessoa = new Pessoa();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("pessoa");
+            System.out.println("Consultando...");
+            pessoa = (Pessoa) objetoRemoto.findBy("cpf", cpf);
+            //Passa o id da pessoa para o atributo
+            IDPessoa = pessoa.getIdPessoa();
+            if(IDPessoa == 0){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else{
+                //se o cpf de pessoa for encontrado, é pesquisado se ele corresponde a uma cliente
+                pesquisaCliente(IDPessoa);
+            }
+                                   
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private void pesquisaCliente(int idPessoa){
+        try{
+            Cliente cliente = new Cliente();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
+            System.out.println("Consultando Cliente...");
+            cliente = (Cliente) objetoRemoto.findBy("Pessoa_idPessoa", idPessoa);
+            if(cliente.getIdCliente() == 0){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else if(cliente.getIdCliente() != 0){
+                //se o id for encontrado, os campos para edição são ativados
+                Panel_Venda.setVisible(true);
+            }
+                                   
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private void pesquisaProduto(){       
+        try{
+            String aux = TextField_IDProduto.getText().toString();
+            int idProduto;
+            if(aux.equals(null)){
+                JOptionPane.showMessageDialog(null, "Produto não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else{
+                //Converte a chave para Int
+                idProduto = Integer.parseInt(aux);
+                
+                Produto produto = new Produto();
+                //criar objeto da interface, usa o lookpu para pegar a chave
+                //conexa_server possui o ip e o registry para definir a conexao com o server
+                IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("produto");
+                System.out.println("Consultando Produto...");
+                produto = (Produto) objetoRemoto.findBy("idProduto", idProduto);
+                if(produto.getIdProduto() == 0){
+                    JOptionPane.showMessageDialog(null, "Produto não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+                }else{
+                    
+                }
+            }                        
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
