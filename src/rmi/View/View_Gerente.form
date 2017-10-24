@@ -60,19 +60,27 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+<<<<<<< HEAD
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="33" max="32767" attributes="0"/>
+=======
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Button_CadastraFuncionario" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="Button_CadastraProduto" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
@@ -90,7 +98,11 @@
               <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="Button_EncerraSessao" min="-2" pref="41" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <EmptySpace max="-2" attributes="0"/>
+=======
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
           </Group>
       </Group>
     </DimensionLayout>
@@ -156,6 +168,7 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -164,5 +177,7 @@
         <Property name="text" type="java.lang.String" value="Gerente"/>
       </Properties>
     </Component>
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
   </SubComponents>
 </Form>

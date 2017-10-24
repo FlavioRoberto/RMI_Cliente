@@ -205,6 +205,7 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
         } else if (cargo.equals("Produção")) {
             especialidade = "Produção";
         }
+<<<<<<< HEAD
 
         if (!nome.equals(null) && !cpf.equals(null) && !rg.equals(null)
                 && !telefone.equals(null) && !especialidade.equals(null)) {
@@ -217,10 +218,25 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
     private void cadastraFuncionario(String nome, String cpf, String rg, String telefone, String especialidade,
             String senha) {
         try {
+=======
+        
+        if(!nome.equals(null) && !cpf.equals(null) && !rg.equals(null) && 
+                !telefone.equals(null) && !especialidade.equals(null)){
+            cadastraFuncionario(nome, cpf, rg, telefone, especialidade, "200200");
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void cadastraFuncionario(String nome, String cpf, String rg, String telefone, String especialidade
+            , String senha){
+        try{
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
             //criar objeto da interface, usa o lookpu para pegar a chave
             IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("funcionario");
             //chama metodo do servidor
             System.out.println("Cadastrando...");
+<<<<<<< HEAD
 
             if (validaCpf(cpf)) {
                 Funcionario funcionario = new Funcionario();
@@ -240,6 +256,21 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
         } catch (RemoteException e) {
             System.out.println(e.getMessage());
         } catch (NotBoundException e) {
+=======
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setCpf(cpf);
+            funcionario.setEspecialidade(especialidade);
+            funcionario.setNome(nome);
+            funcionario.setRg(rg);
+            funcionario.setSalario(2000);
+            funcionario.setTelefone(telefone);
+            funcionario.setSenha(senha);
+            JOptionPane.showMessageDialog(null, objetoRemoto.create(funcionario), null,JOptionPane.INFORMATION_MESSAGE);
+                        
+        }catch(RemoteException e){
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
             System.out.println(e.getMessage());
         }
     }

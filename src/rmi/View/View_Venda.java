@@ -5,6 +5,7 @@
  */
 package rmi.View;
 
+<<<<<<< HEAD
 import Application.formataData;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -19,6 +20,16 @@ import rmi.Model.Produto;
 import rmi.Model.Venda;
 import rmi.Util.conexao_server;
 import static rmi.View.Login.IDFUNCIONARIO;
+=======
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
+import rmi.Model.Pessoa;
+import rmi.Model.Produto;
+import rmi.Util.conexao_server;
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
 
 /**
  *
@@ -29,10 +40,16 @@ public class View_Venda extends javax.swing.JFrame {
     /**
      * Creates new form View_Venda
      */
+<<<<<<< HEAD
     private int IDPessoa;
     private int IDCliente;
     private int IDVenda;
 
+=======
+    
+    private int IDPessoa;
+    
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     public View_Venda() {
         initComponents();
         Panel_Venda.setVisible(false);
@@ -97,6 +114,19 @@ public class View_Venda extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
+=======
+        btn_Adicionar.setText("Adicionar");
+        btn_Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AdicionarActionPerformed(evt);
+            }
+        });
+
+        Label_ProdutoNaoEncontrado.setForeground(new java.awt.Color(204, 0, 0));
+        Label_ProdutoNaoEncontrado.setText("Produto não Encontrado!");
+
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
         jLabel4.setText("Quantidade:");
 
         TextField_Quantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
@@ -180,7 +210,11 @@ public class View_Venda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PesquisarActionPerformed
+<<<<<<< HEAD
         valoresDosCampos();
+=======
+        valoresDosCampos();       
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     }//GEN-LAST:event_Btn_PesquisarActionPerformed
 
     private void TextField_CpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_CpfActionPerformed
@@ -191,6 +225,7 @@ public class View_Venda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_IDProdutoActionPerformed
 
+<<<<<<< HEAD
     private void btn_GerarOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GerarOrdemActionPerformed
         pesquisaProduto();
     }//GEN-LAST:event_btn_GerarOrdemActionPerformed
@@ -211,10 +246,33 @@ public class View_Venda extends javax.swing.JFrame {
             //criar objeto da interface, usa o lookpu para pegar a chave
             //conexa_server possui o ip e o registry para definir a conexao com o server
             IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("pessoa");
+=======
+    private void btn_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdicionarActionPerformed
+        pesquisaProduto();
+    }//GEN-LAST:event_btn_AdicionarActionPerformed
+
+    private void valoresDosCampos(){
+       String cpf = TextField_Cpf.getText().toString();
+       if(!cpf.equals(null)){
+           pesquisaPessoa(cpf);
+       }else{
+           JOptionPane.showMessageDialog(null, "É necessário preencher o campo!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+       }
+    }
+    
+    private void pesquisaPessoa(String cpf){
+        try{
+            Pessoa pessoa = new Pessoa();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("pessoa");
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
             System.out.println("Consultando...");
             pessoa = (Pessoa) objetoRemoto.findBy("cpf", cpf);
             //Passa o id da pessoa para o atributo
             IDPessoa = pessoa.getIdPessoa();
+<<<<<<< HEAD
             if (IDPessoa == 0) {
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado!",
                         null, JOptionPane.ERROR_MESSAGE);
@@ -320,10 +378,78 @@ public class View_Venda extends javax.swing.JFrame {
         } catch (RemoteException e) {
             System.out.println(e.getMessage());
         } catch (NotBoundException e) {
+=======
+            if(IDPessoa == 0){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else{
+                //se o cpf de pessoa for encontrado, é pesquisado se ele corresponde a uma cliente
+                pesquisaCliente(IDPessoa);
+            }
+                                   
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
             System.out.println(e.getMessage());
         }
     }
     
+    private void pesquisaCliente(int idPessoa){
+        try{
+            Cliente cliente = new Cliente();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
+            System.out.println("Consultando Cliente...");
+            cliente = (Cliente) objetoRemoto.findBy("Pessoa_idPessoa", idPessoa);
+            if(cliente.getIdCliente() == 0){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else if(cliente.getIdCliente() != 0){
+                //se o id for encontrado, os campos para edição são ativados
+                Panel_Venda.setVisible(true);
+            }
+                                   
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private void pesquisaProduto(){       
+        try{
+            String aux = TextField_IDProduto.getText().toString();
+            int idProduto;
+            if(aux.equals(null)){
+                JOptionPane.showMessageDialog(null, "Produto não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else{
+                //Converte a chave para Int
+                idProduto = Integer.parseInt(aux);
+                
+                Produto produto = new Produto();
+                //criar objeto da interface, usa o lookpu para pegar a chave
+                //conexa_server possui o ip e o registry para definir a conexao com o server
+                IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("produto");
+                System.out.println("Consultando Produto...");
+                produto = (Produto) objetoRemoto.findBy("idProduto", idProduto);
+                if(produto.getIdProduto() == 0){
+                    JOptionPane.showMessageDialog(null, "Produto não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+                }else{
+                    
+                }
+            }                        
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+            System.out.println(e.getMessage());
+        }
+    }
+    
+<<<<<<< HEAD
     private void geraOrdem(int idFuncionario, int idVenda){
         try {
 
@@ -357,6 +483,8 @@ public class View_Venda extends javax.swing.JFrame {
         
     }
 
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     /**
      * @param args the command line arguments
      */

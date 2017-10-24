@@ -45,6 +45,10 @@ public class Venda implements Serializable {
     public void setCliente_idCliente(int cliente_idCliente) {
         this.cliente_idCliente = cliente_idCliente;
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     
     
 }

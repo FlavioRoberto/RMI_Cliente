@@ -27,9 +27,12 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */   
+<<<<<<< HEAD
     
     public static int IDFUNCIONARIO;
     
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     public Login() {
         initComponents();
     }
@@ -52,6 +55,10 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
+<<<<<<< HEAD
+=======
+        setAlwaysOnTop(true);
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
         setAutoRequestFocus(false);
         setResizable(false);
 
@@ -171,8 +178,11 @@ public class Login extends javax.swing.JFrame {
             if(funcionario.getIdFuncionario() != 0){
                 if(funcionario.getSenha().equals(senha)){
                     if(funcionario.getEspecialidade().equals("Vendedor")){
+<<<<<<< HEAD
                         //recebe o idFuncionario
                         IDFUNCIONARIO = funcionario.getIdFuncionario();
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
                         //acessa tela do vendedor
                         View_Vendedor view = new View_Vendedor();
                         view.setVisible(true);

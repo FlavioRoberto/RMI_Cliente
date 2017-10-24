@@ -27,6 +27,7 @@ public class View_Vendedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         Button_CadastraFuncionario1 = new javax.swing.JButton();
         Button_RealizaVenda = new javax.swing.JButton();
         Button_Visualiza = new javax.swing.JButton();
@@ -67,11 +68,19 @@ public class View_Vendedor extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Vendedor");
+=======
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Tela do Vendedor");
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(167, 167, 167)
@@ -129,6 +138,24 @@ public class View_Vendedor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_Button_EncerraSessaoActionPerformed
 
+=======
+            .addGroup(layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(jLabel1)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jLabel1)
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     /**
      * @param args the command line arguments
      */
@@ -165,11 +192,15 @@ public class View_Vendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton Button_CadastraFuncionario1;
     private javax.swing.JButton Button_EncerraSessao;
     private javax.swing.JButton Button_RealizaVenda;
     private javax.swing.JButton Button_Visualiza;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
+=======
+    private javax.swing.JLabel jLabel1;
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     // End of variables declaration//GEN-END:variables
 }
