@@ -12,6 +12,7 @@ import java.rmi.registry.Registry;
 import javax.swing.JOptionPane;
 import rmi.Interface.IControllerBase;
 import rmi.Model.Funcionario;
+import rmi.Model.Pessoa;
 import rmi.Util.conexao_server;
 
 /**
@@ -51,7 +52,8 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
         FormattedTextField_Telefone = new javax.swing.JFormattedTextField();
         ComboBox_Cargo = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         Label_Cadastro_de_Cliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Label_Cadastro_de_Cliente.setText("Cadastro de Funcionário");
@@ -107,74 +109,75 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 42, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel11))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(FormattedTextField_Telefone)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel12)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(60, 60, 60))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(142, 142, 142)
-                                    .addComponent(Btn_Cadastrar))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(106, 106, 106)
-                            .addComponent(jLabel3)
-                            .addGap(0, 0, Short.MAX_VALUE))))
-                .addGap(112, 112, 112))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(207, 207, 207)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel12)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(60, 60, 60)))
+                                .addComponent(jLabel3))
+                            .addComponent(jLabel5)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(Btn_Cadastrar)))
+                .addContainerGap(69, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Label_Cadastro_de_Cliente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(218, 218, 218))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Label_Cadastro_de_Cliente)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11)
-                    .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(42, 42, 42)
-                .addComponent(Btn_Cadastrar)
-                .addGap(113, 113, 113)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(150, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(115, 115, 115))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Label_Cadastro_de_Cliente)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addComponent(Btn_Cadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)))
                 .addComponent(jLabel5)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void FormattedTextField_RGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormattedTextField_RGActionPerformed
@@ -186,55 +189,87 @@ public class View_CadastraFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_CadastrarActionPerformed
 
     //Metodo para recuperar os valores digitados nos campos e verificar se algum campo ficou vazio
-    private void valoresDosCampos(){
+    private void valoresDosCampos() {
         String nome = TextField_Nome.getText().toString();
         String cpf = FormattedTextField_CPF.getText().toString();
         String rg = FormattedTextField_RG.getText().toString();
         String telefone = FormattedTextField_Telefone.getText().toString();
         String cargo = ComboBox_Cargo.getSelectedItem().toString();
         String especialidade = null;
-        if(cargo.equals("Cargo")){
-            JOptionPane.showMessageDialog(null, "É necessário escolher um cargo!", null,JOptionPane.ERROR_MESSAGE);
-        }else if(cargo.equals("Gerente")){
+        if (cargo.equals("Cargo")) {
+            JOptionPane.showMessageDialog(null, "É necessário escolher um cargo!", null, JOptionPane.ERROR_MESSAGE);
+        } else if (cargo.equals("Gerente")) {
             especialidade = "Gerente";
-        }else if(cargo.equals("Vendedor")){
+        } else if (cargo.equals("Vendedor")) {
             especialidade = "Vendedor";
-        }else if(cargo.equals("Produção")){
+        } else if (cargo.equals("Produção")) {
             especialidade = "Produção";
         }
-        
-        if(!nome.equals(null) && !cpf.equals(null) && !rg.equals(null) && 
-                !telefone.equals(null) && !especialidade.equals(null)){
-            cadastraFuncionario(nome, cpf, rg, telefone, especialidade);
-        }else{
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
+
+        if (!nome.equals(null) && !cpf.equals(null) && !rg.equals(null)
+                && !telefone.equals(null) && !especialidade.equals(null)) {
+            cadastraFuncionario(nome, cpf, rg, telefone, especialidade, "200200");
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null, JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    private void cadastraFuncionario(String nome, String cpf, String rg, String telefone, String especialidade){
-        try{
+
+    private void cadastraFuncionario(String nome, String cpf, String rg, String telefone, String especialidade,
+            String senha) {
+        try {
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("funcionario");
+            IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("funcionario");
             //chama metodo do servidor
             System.out.println("Cadastrando...");
-            
-            Funcionario funcionario = new Funcionario();
-            
-            funcionario.setCpf(cpf);
-            funcionario.setEspecialidade(especialidade);
-            funcionario.setNome(nome);
-            funcionario.setRg(rg);
-            funcionario.setSalario(2000);
-            funcionario.setTelefone(telefone);
-            JOptionPane.showMessageDialog(null, objetoRemoto.create(funcionario), null,JOptionPane.INFORMATION_MESSAGE);
-                        
-        }catch(RemoteException e){
+
+            if (validaCpf(cpf)) {
+                Funcionario funcionario = new Funcionario();
+
+                funcionario.setCpf(cpf);
+                funcionario.setEspecialidade(especialidade);
+                funcionario.setNome(nome);
+                funcionario.setRg(rg);
+                funcionario.setSalario(2000);
+                funcionario.setTelefone(telefone);
+                funcionario.setSenha(senha);
+                JOptionPane.showMessageDialog(null, objetoRemoto.create(funcionario), null, JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "CPF já está em uso!", null, JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        } catch (RemoteException e) {
             System.out.println(e.getMessage());
-        }catch(NotBoundException e){
+        } catch (NotBoundException e) {
             System.out.println(e.getMessage());
-        } 
+        }
     }
-    
+
+    private boolean validaCpf(String cpf) {
+        boolean valida = false;
+        try {
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("pessoa");
+            //chama metodo do servidor
+            System.out.println("Consultando...");
+
+            Pessoa pessoa = new Pessoa();
+
+            pessoa = (Pessoa) objetoRemoto.findBy("cpf", cpf);
+
+            if (pessoa.getIdPessoa() == 0) {
+                valida = true;
+            } else {
+                valida = false;
+            }
+
+        } catch (RemoteException e) {
+            System.out.println(e.getMessage());
+        } catch (NotBoundException e) {
+            System.out.println(e.getMessage());
+        }
+        return valida;
+    }
+
     /**
      * @param args the command line arguments
      */

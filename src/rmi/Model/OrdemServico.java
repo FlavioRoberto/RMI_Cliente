@@ -15,8 +15,8 @@ import java.util.Date;
  * @author Admin
  */
 public class OrdemServico implements Serializable {
-    private int idOrdemServico, idFuncionario, idCliente, idVenda;
-    private Date dataExp, dataConclusao;
+    private int idOrdemServico, idFuncionario,estado,idVenda;
+    private Date dataExp;//, dataConclusao;
 
     public int getIdOrdemServico() {
         return idOrdemServico;
@@ -25,7 +25,35 @@ public class OrdemServico implements Serializable {
     public void setIdOrdemServico(int idOrdemServico) {
         this.idOrdemServico = idOrdemServico;
     }
+/*
+    public int getIdClienteHasproduto() {
+        return idClienteHasproduto;
+    }
+*/
+    public int getEstado() {
+        return estado;
+    }
 
+    public void setEstado(int servicoCompleto) {
+        this.estado = servicoCompleto;
+    }
+
+    public int getVendaId() {
+        return idVenda;
+    }
+
+    public void setVendaId(int produtoId) {
+        this.idVenda = produtoId;
+    }
+
+    
+    /*
+    
+    public void setIdClienteHasproduto(int idClienteHasproduto) {
+        this.idClienteHasproduto = idClienteHasproduto;
+    }
+*/
+    
     public int getIdFuncionario() {
         return idFuncionario;
     }
@@ -34,21 +62,15 @@ public class OrdemServico implements Serializable {
         this.idFuncionario = idFuncionario;
     }
 
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-
+/*
     public int getIdVenda() {
         return idVenda;
     }
-
+*/
+    /*
     public void setIdVenda(int idVenda) {
         this.idVenda = idVenda;
-    }
+    }*/
 
     public Date getDataExp() {
         return dataExp;
@@ -58,13 +80,16 @@ public class OrdemServico implements Serializable {
         this.dataExp = dataExp;
     }
 
-    public Date getDataConclusao() {
+    
+    
+    /*public Date getDataConclusao() {
         return dataConclusao;
-    }
+    }*/
 
+    /*
     public void setDataConclusao(Date dataConclusao) {
         this.dataConclusao = dataConclusao;
-    }
+    }*/
     
     
 }

@@ -38,7 +38,6 @@ public class View_CadastroCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         Label_Cadastro_de_Cliente = new javax.swing.JLabel();
         Btn_Cadastrar = new javax.swing.JButton();
         FormattedTextField_Telefone = new javax.swing.JFormattedTextField();
@@ -48,13 +47,11 @@ public class View_CadastroCliente extends javax.swing.JFrame {
         FormattedTextField_CPF = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        ComboBox_Tipo = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel11.setText("Telefone:");
-
-        jLabel12.setText("Tipo:");
 
         Label_Cadastro_de_Cliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Label_Cadastro_de_Cliente.setText("Cadastro de Cliente");
@@ -95,8 +92,6 @@ public class View_CadastroCliente extends javax.swing.JFrame {
 
         jLabel10.setText("RG:");
 
-        ComboBox_Tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Pessoa Física", "Pessoa Jurídica" }));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,12 +117,7 @@ public class View_CadastroCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(ComboBox_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(213, 213, 213)
                         .addComponent(Btn_Cadastrar)))
@@ -150,16 +140,15 @@ public class View_CadastroCliente extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
                     .addComponent(jLabel11)
-                    .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(Btn_Cadastrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CadastrarActionPerformed
@@ -175,25 +164,16 @@ public class View_CadastroCliente extends javax.swing.JFrame {
         String cpf = FormattedTextField_CPF.getText().toString();
         String rg = FormattedTextField_RG.getText().toString();
         String telefone = FormattedTextField_Telefone.getText().toString();
-        String opcao = ComboBox_Tipo.getSelectedItem().toString();
-        String tipo = null;
-        if(opcao.equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "É necessário escolher um tipo!", null,JOptionPane.ERROR_MESSAGE);
-        }else if(opcao.equals("Pessoa Física")){
-            tipo = "Pessoa Física";
-        }else if(opcao.equals("Pessoa Jurídica")){
-            tipo = "Pessoa Jurídica";
-        }
         
         if(!nome.equals(null) && !cpf.equals(null) && !rg.equals(null) && 
-                !telefone.equals(null) && !tipo.equals(null)){
-            cadastraCliente(nome, cpf, rg, telefone, tipo);
+                !telefone.equals(null)){
+            cadastraCliente(nome, cpf, rg, telefone);
         }else{
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
         }
     }
      
-    private void cadastraCliente(String nome, String cpf, String rg, String telefone, String tipo){
+    private void cadastraCliente(String nome, String cpf, String rg, String telefone){
         try{
             //criar objeto da interface, usa o lookpu para pegar a chave
             IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
@@ -204,7 +184,7 @@ public class View_CadastroCliente extends javax.swing.JFrame {
             cliente.setCpf(cpf);
             cliente.setRg(rg);
             cliente.setTelefone(telefone);
-            cliente.setTipo(tipo);
+            cliente.setTipo("Pessoa Física");
             
             JOptionPane.showMessageDialog(null, objetoRemoto.create(cliente), null,JOptionPane.INFORMATION_MESSAGE);            
         }catch(RemoteException e){
@@ -250,7 +230,6 @@ public class View_CadastroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Cadastrar;
-    private javax.swing.JComboBox ComboBox_Tipo;
     private javax.swing.JFormattedTextField FormattedTextField_CPF;
     private javax.swing.JFormattedTextField FormattedTextField_RG;
     private javax.swing.JFormattedTextField FormattedTextField_Telefone;
@@ -258,7 +237,6 @@ public class View_CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField TextField_Nome;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
