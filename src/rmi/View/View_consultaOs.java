@@ -41,6 +41,11 @@ public class View_consultaOs extends javax.swing.JInternalFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data", "Finalizadas", "Em andamento" }));
 
         jButtonConsultar.setText("Consultar");
+        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConsultarActionPerformed(evt);
+            }
+        });
 
         label1.setText("Filtrar por: ");
 
@@ -65,6 +70,11 @@ public class View_consultaOs extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButtonSelecionar.setText("Selecionar");
+        jButtonSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelecionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,6 +123,15 @@ public class View_consultaOs extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
+        
+    }//GEN-LAST:event_jButtonConsultarActionPerformed
+
+    private void jButtonSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarActionPerformed
+        View_detalhes_Os detalheOs = new View_detalhes_Os();
+        detalheOs.show();
+    }//GEN-LAST:event_jButtonSelecionarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

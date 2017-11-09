@@ -9,7 +9,7 @@ package rmi.View;
  *
  * @author Admin
  */
-public class View_detalhes_Os extends javax.swing.JInternalFrame {
+public class View_detalhes_Os extends javax.swing.JFrame {
 
     /**
      * Creates new form View_detalhes_Os
