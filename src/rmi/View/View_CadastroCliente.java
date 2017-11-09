@@ -75,14 +75,23 @@ public class View_CadastroCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+=======
+        jLabel11 = new javax.swing.JLabel();
+        Label_Cadastro_de_Cliente = new javax.swing.JLabel();
+        Btn_Cadastrar = new javax.swing.JButton();
+        FormattedTextField_Telefone = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         TextField_Nome = new javax.swing.JTextField();
         FormattedTextField_CPF = new javax.swing.JFormattedTextField();
+<<<<<<< HEAD
         FormattedTextField_RG = new javax.swing.JFormattedTextField();
         FormattedTextField_Telefone = new javax.swing.JFormattedTextField();
         FormattedTextField_Celular = new javax.swing.JFormattedTextField();
@@ -97,12 +106,24 @@ public class View_CadastroCliente extends javax.swing.JInternalFrame {
         jLabel2.setText("Nome:");
 
         jLabel3.setText("Cpf:");
+=======
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
         jLabel4.setText("Rg:");
 
+<<<<<<< HEAD
         jLabel5.setText("Telefone:");
 
         jLabel7.setText("Celular:");
+=======
+        Label_Cadastro_de_Cliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Label_Cadastro_de_Cliente.setText("Cadastro de Cliente");
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
         TextField_Nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +155,7 @@ public class View_CadastroCliente extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
+<<<<<<< HEAD
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +163,8 @@ public class View_CadastroCliente extends javax.swing.JInternalFrame {
             }
         });
 
+=======
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,12 +174,22 @@ public class View_CadastroCliente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                                 .addGap(166, 166, 166)
                                 .addComponent(jButton1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(141, 141, 141)
                                 .addComponent(jLabel1)))
                         .addGap(0, 0, Short.MAX_VALUE))
+=======
+                                .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,28 +234,115 @@ public class View_CadastroCliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FormattedTextField_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+<<<<<<< HEAD
                 .addComponent(jButton1)
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(Btn_Cadastrar)
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextField_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_NomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_NomeActionPerformed
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         valoresDosCampos();
     }//GEN-LAST:event_jButton1ActionPerformed
+=======
+    private void valoresDosCampos(){
+        String nome = TextField_Nome.getText().toString();
+        String cpf = FormattedTextField_CPF.getText().toString();
+        String rg = FormattedTextField_RG.getText().toString();
+        String telefone = FormattedTextField_Telefone.getText().toString();
+        
+        if(!nome.equals(null) && !cpf.equals(null) && !rg.equals(null) && 
+                !telefone.equals(null)){
+            cadastraCliente(nome, cpf, rg, telefone);
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
+        }
+    }
+     
+    private void cadastraCliente(String nome, String cpf, String rg, String telefone){
+        try{
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
+            //chama metodo do servidor
+            System.out.println("Cadastrando...");
+            Cliente cliente = new Cliente();
+            cliente.setNome(nome);
+            cliente.setCpf(cpf);
+            cliente.setRg(rg);
+            cliente.setTelefone(telefone);
+            cliente.setTipo("Pessoa Física");
+            
+            JOptionPane.showMessageDialog(null, objetoRemoto.create(cliente), null,JOptionPane.INFORMATION_MESSAGE);            
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        } 
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+=======
+    private javax.swing.JButton Btn_Cadastrar;
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     private javax.swing.JFormattedTextField FormattedTextField_CPF;
     private javax.swing.JFormattedTextField FormattedTextField_Celular;
     private javax.swing.JFormattedTextField FormattedTextField_RG;
     private javax.swing.JFormattedTextField FormattedTextField_Telefone;
     private javax.swing.JTextField TextField_Nome;
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -229,5 +350,11 @@ public class View_CadastroCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+=======
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     // End of variables declaration//GEN-END:variables
 }

@@ -2,10 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/bruno.DESKTOP-SNF1C5B/Documents/GitHub/RMI_Cliente/src/rmi/View/View_RealizaVenda.java</file>
             <file>file:/C:/Users/bruno.DESKTOP-SNF1C5B/Documents/GitHub/RMI_Cliente/src/rmi/View/View_Vendedor.java</file>
             <file>file:/C:/Users/bruno.DESKTOP-SNF1C5B/Documents/GitHub/RMI_Cliente/src/rmi/View/View_OS.java</file>
+=======
+            <file>file:/C:/Users/bruno.DESKTOP-SNF1C5B/Documents/Netbeans%20Projects/RMI_Cliente/src/rmi/View/View_Gerente.java</file>
+            <file>file:/C:/Users/bruno.DESKTOP-SNF1C5B/Documents/Netbeans%20Projects/RMI_Cliente/src/rmi/View/View_PesquisaCliente.java</file>
+            <file>file:/C:/Users/bruno.DESKTOP-SNF1C5B/Documents/Netbeans%20Projects/RMI_Cliente/src/rmi/View/View_PesquisaProduto.java</file>
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         </group>
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     </open-files>
 </project-private>

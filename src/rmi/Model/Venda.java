@@ -13,10 +13,14 @@ import java.util.Date;
  * @author Admin
  */
 public class Venda implements Serializable {
+<<<<<<< HEAD
     private int idVenda,idCliente,idFuncionario;
     private Date data;
     private boolean confirmado;
     private float valorTotal;
+=======
+    private int idVenda, quantidade,produto_idProduto,cliente_idCliente;
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
     public int getIdVenda() {
         return idVenda;
@@ -34,6 +38,7 @@ public class Venda implements Serializable {
         this.idFuncionario = idFuncionario;
     }
 
+<<<<<<< HEAD
     
 
     public int getIdCliente() {
@@ -69,6 +74,27 @@ public class Venda implements Serializable {
     }
     
     
+=======
+    public int getProduto_idProduto() {
+        return produto_idProduto;
+    }
+
+    public void setProduto_idProduto(int produto_idProduto) {
+        this.produto_idProduto = produto_idProduto;
+    }
+
+    public int getCliente_idCliente() {
+        return cliente_idCliente;
+    }
+
+    public void setCliente_idCliente(int cliente_idCliente) {
+        this.cliente_idCliente = cliente_idCliente;
+    }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     
     
 }

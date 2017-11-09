@@ -2,11 +2,20 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
+<<<<<<< HEAD
     <Property name="closable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Cadastro Cliente"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+=======
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -31,10 +40,15 @@
                               <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
+=======
+                          <Component id="TextField_Nome" alignment="0" min="-2" pref="394" max="-2" attributes="0"/>
+                          <Component id="FormattedTextField_Telefone" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -89,7 +103,23 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="FormattedTextField_Celular" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+=======
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="FormattedTextField_CPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="FormattedTextField_RG" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="FormattedTextField_Telefone" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+              <Component id="Btn_Cadastrar" min="-2" max="-2" attributes="0"/>
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -104,12 +134,16 @@
         <Property name="text" type="java.lang.String" value="Cadastro de Cliente"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
+=======
+    <Component class="javax.swing.JLabel" name="Label_Cadastro_de_Cliente">
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
       <Properties>
         <Property name="text" type="java.lang.String" value="Cpf:"/>
       </Properties>
@@ -155,6 +189,7 @@
         </Property>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JFormattedTextField" name="FormattedTextField_Celular">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
@@ -170,5 +205,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
+=======
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
   </SubComponents>
 </Form>

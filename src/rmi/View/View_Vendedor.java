@@ -27,12 +27,22 @@ public class View_Vendedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         Button_CadastraFuncionario1 = new javax.swing.JButton();
         DesktopPane_Vendedor = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+=======
+<<<<<<< HEAD
+        Button_CadastraFuncionario1 = new javax.swing.JButton();
+        Button_RealizaVenda = new javax.swing.JButton();
+        Button_Visualiza = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        Button_EncerraSessao = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
         Button_CadastraFuncionario1.setText("Realizar Venda");
         Button_CadastraFuncionario1.addActionListener(new java.awt.event.ActionListener() {
@@ -41,6 +51,7 @@ public class View_Vendedor extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout DesktopPane_VendedorLayout = new javax.swing.GroupLayout(DesktopPane_Vendedor);
@@ -70,26 +81,105 @@ public class View_Vendedor extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
+=======
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
+
+        Button_RealizaVenda.setText("Realizar Venda");
+        Button_RealizaVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_RealizaVendaActionPerformed(evt);
+            }
+        });
+
+        Button_Visualiza.setText("Visualizar Vendas");
+        Button_Visualiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_VisualizaActionPerformed(evt);
+            }
+        });
+
+        Button_EncerraSessao.setText("Encerrar Sessão");
+        Button_EncerraSessao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_EncerraSessaoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Vendedor");
+=======
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Tela do Vendedor");
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(DesktopPane_Vendedor)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(DesktopPane_Vendedor)
+=======
+<<<<<<< HEAD
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Button_RealizaVenda)
+                        .addGap(35, 35, 35)
+                        .addComponent(Button_Visualiza)
+                        .addGap(59, 59, 59))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Button_EncerraSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_RealizaVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_Visualiza, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Button_EncerraSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+=======
+    private void Button_RealizaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RealizaVendaActionPerformed
+        View_Venda view = new View_Venda();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_RealizaVendaActionPerformed
+
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     private void Button_CadastraFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraFuncionario1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_CadastraFuncionario1ActionPerformed
 
+<<<<<<< HEAD
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         //Chama o Frame de cadastro cliente
         View_RealizaVenda view = new View_RealizaVenda();
@@ -97,6 +187,37 @@ public class View_Vendedor extends javax.swing.JFrame {
         view.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+=======
+    private void Button_VisualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_VisualizaActionPerformed
+        View_VizualizaVendas view = new View_VizualizaVendas();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_VisualizaActionPerformed
+
+    private void Button_EncerraSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EncerraSessaoActionPerformed
+        Login view = new Login();
+        view.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Button_EncerraSessaoActionPerformed
+
+=======
+            .addGroup(layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(jLabel1)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jLabel1)
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     /**
      * @param args the command line arguments
      */
@@ -133,11 +254,24 @@ public class View_Vendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton Button_CadastraFuncionario1;
     private javax.swing.JDesktopPane DesktopPane_Vendedor;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+=======
+<<<<<<< HEAD
+    private javax.swing.JButton Button_CadastraFuncionario1;
+    private javax.swing.JButton Button_EncerraSessao;
+    private javax.swing.JButton Button_RealizaVenda;
+    private javax.swing.JButton Button_Visualiza;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator1;
+=======
+    private javax.swing.JLabel jLabel1;
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     // End of variables declaration//GEN-END:variables
 }

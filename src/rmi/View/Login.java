@@ -27,9 +27,18 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */   
+<<<<<<< HEAD
     
     public static int IDFUNCIONARIO;
     
+=======
+<<<<<<< HEAD
+    
+    public static int IDFUNCIONARIO;
+    
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     public Login() {
         initComponents();
     }
@@ -52,6 +61,13 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        setAlwaysOnTop(true);
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         setAutoRequestFocus(false);
         setResizable(false);
 
@@ -165,14 +181,26 @@ public class Login extends javax.swing.JFrame {
             //chama metodo do servidor
             System.out.println("Consultando...");
             Funcionario funcionario = new Funcionario();
+<<<<<<< HEAD
             funcionario = (Funcionario) objetoRemoto.findBy("idPessoa", idPessoa);
+=======
+            funcionario = (Funcionario) objetoRemoto.findBy("Pessoa_idPessoa", idPessoa);
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
             Login telaLogin = new Login(); 
             
             if(funcionario.getIdFuncionario() != 0){
                 if(funcionario.getSenha().equals(senha)){
                     if(funcionario.getEspecialidade().equals("Vendedor")){
+<<<<<<< HEAD
                         //recebe o idFuncionario
                         IDFUNCIONARIO = funcionario.getIdFuncionario();
+=======
+<<<<<<< HEAD
+                        //recebe o idFuncionario
+                        IDFUNCIONARIO = funcionario.getIdFuncionario();
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
                         //acessa tela do vendedor
                         View_Vendedor view = new View_Vendedor();
                         view.setVisible(true);

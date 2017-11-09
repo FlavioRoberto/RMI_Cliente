@@ -29,6 +29,7 @@ public class View_Gerente extends javax.swing.JFrame {
     private void initComponents() {
 
         Button_CadastraFuncionario1 = new javax.swing.JButton();
+<<<<<<< HEAD
         DesktopPane_Gerente = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Cadastro = new javax.swing.JMenu();
@@ -39,6 +40,21 @@ public class View_Gerente extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+=======
+        Button_CadastraFuncionario = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        Button_CadastraProduto = new javax.swing.JButton();
+        Button_CadastraCliente = new javax.swing.JButton();
+        Button_EditaFuncionario = new javax.swing.JButton();
+        Button_EditarProduto = new javax.swing.JButton();
+        Button_EditarCliente = new javax.swing.JButton();
+        Button_EncerraSessao = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+<<<<<<< HEAD
+        jLabel1 = new javax.swing.JLabel();
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
         Button_CadastraFuncionario1.setText("Editar Funcionario");
         Button_CadastraFuncionario1.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +63,7 @@ public class View_Gerente extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerente");
         setResizable(false);
@@ -120,21 +137,145 @@ public class View_Gerente extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+=======
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Gerente");
+        setResizable(false);
+
+        Button_CadastraFuncionario.setText("Cadastrar Funcionario");
+        Button_CadastraFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_CadastraFuncionarioActionPerformed(evt);
+            }
+        });
+
+        Button_CadastraProduto.setText("Cadastrar Produto");
+        Button_CadastraProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_CadastraProdutoActionPerformed(evt);
+            }
+        });
+
+        Button_CadastraCliente.setText("Cadastrar Cliente");
+        Button_CadastraCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_CadastraClienteActionPerformed(evt);
+            }
+        });
+
+        Button_EditaFuncionario.setText("Editar Funcionario");
+        Button_EditaFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_EditaFuncionarioActionPerformed(evt);
+            }
+        });
+
+        Button_EditarProduto.setText("Editar Produto");
+        Button_EditarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_EditarProdutoActionPerformed(evt);
+            }
+        });
+
+        Button_EditarCliente.setText("Editar Cliente");
+        Button_EditarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_EditarClienteActionPerformed(evt);
+            }
+        });
+
+        Button_EncerraSessao.setText("Encerrar Sessão");
+        Button_EncerraSessao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_EncerraSessaoActionPerformed(evt);
+            }
+        });
+
+<<<<<<< HEAD
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Gerente");
+
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(DesktopPane_Gerente)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(DesktopPane_Gerente)
+=======
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Button_CadastraFuncionario)
+                        .addGap(18, 18, 18)
+                        .addComponent(Button_CadastraProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Button_CadastraCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Button_EditaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Button_EncerraSessao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Button_EditarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(Button_EditarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(jSeparator2)
+<<<<<<< HEAD
+            .addGroup(layout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+=======
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_CadastraFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_CadastraProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_CadastraCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_EditaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_EditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_EditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(Button_EncerraSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
+                .addContainerGap())
+=======
+                .addContainerGap(26, Short.MAX_VALUE))
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void Button_CadastraFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraFuncionario1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_CadastraFuncionario1ActionPerformed
@@ -180,6 +321,47 @@ public class View_Gerente extends javax.swing.JFrame {
         DesktopPane_Gerente.add(view);
         view.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+=======
+    private void Button_CadastraFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraFuncionarioActionPerformed
+        View_CadastraFuncionario view = new View_CadastraFuncionario();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_CadastraFuncionarioActionPerformed
+
+    private void Button_CadastraProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraProdutoActionPerformed
+        View_CadastroProduto view = new View_CadastroProduto();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_CadastraProdutoActionPerformed
+
+    private void Button_CadastraClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraClienteActionPerformed
+        View_CadastroCliente view = new View_CadastroCliente();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_CadastraClienteActionPerformed
+
+    private void Button_CadastraFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CadastraFuncionario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_CadastraFuncionario1ActionPerformed
+
+    private void Button_EditaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EditaFuncionarioActionPerformed
+        View_PesquisaFuncionario view = new View_PesquisaFuncionario();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_EditaFuncionarioActionPerformed
+
+    private void Button_EditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EditarProdutoActionPerformed
+        View_PesquisaProduto view = new View_PesquisaProduto();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_EditarProdutoActionPerformed
+
+    private void Button_EditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EditarClienteActionPerformed
+        View_PesquisaCliente view = new View_PesquisaCliente();
+        view.setVisible(true);
+    }//GEN-LAST:event_Button_EditarClienteActionPerformed
+
+    private void Button_EncerraSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EncerraSessaoActionPerformed
+        Login view = new Login();
+        view.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Button_EncerraSessaoActionPerformed
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
     /**
      * @param args the command line arguments
@@ -217,6 +399,7 @@ public class View_Gerente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton Button_CadastraFuncionario1;
     private javax.swing.JMenu Cadastro;
     private javax.swing.JDesktopPane DesktopPane_Gerente;
@@ -228,5 +411,21 @@ public class View_Gerente extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+=======
+    private javax.swing.JButton Button_CadastraCliente;
+    private javax.swing.JButton Button_CadastraFuncionario;
+    private javax.swing.JButton Button_CadastraFuncionario1;
+    private javax.swing.JButton Button_CadastraProduto;
+    private javax.swing.JButton Button_EditaFuncionario;
+    private javax.swing.JButton Button_EditarCliente;
+    private javax.swing.JButton Button_EditarProduto;
+    private javax.swing.JButton Button_EncerraSessao;
+<<<<<<< HEAD
+    private javax.swing.JLabel jLabel1;
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+>>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     // End of variables declaration//GEN-END:variables
 }
