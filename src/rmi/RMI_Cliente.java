@@ -12,7 +12,6 @@ import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import rmi.Interface.IControllerBase;
-import rmi.Model.Cliente;
 import rmi.Model.Funcionario;
 import rmi.Model.Pessoa;
 import rmi.Util.conexao_server;
@@ -50,12 +49,36 @@ public class RMI_Cliente {
             //cria conexao com a porta de comunicacao com o servidor
             Registry conexao = LocateRegistry.getRegistry("25.32.150.87",1500);
             //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("pessoa");
+            IControllerBase objetoRemoto =(IControllerBase)conexao.lookup("funcionario");
             //chama metodo do servidor
-            System.out.println("Cadastrando...");
-            Pessoa p = new Pessoa();
-            p = (Pessoa)objetoRemoto.findBy("cpf", "11111111111");   
-            System.out.print(p.getNome());
+            System.out.println("Consultando...");
+<<<<<<< HEAD
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setCpf("cpf");
+            funcionario.setEspecialidade("especialidade");
+            funcionario.setNome("teste insere cliente");
+            funcionario.setRg("rg");
+            funcionario.setSalario(2000);
+            funcionario.setTelefone("telefone");
+
+        System.out.println(objetoRemoto.create(funcionario));
+            
+=======
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setCpf("cpf");
+            funcionario.setEspecialidade("especialidade");
+            funcionario.setNome("teste insere cliente");
+            funcionario.setRg("rg");
+            funcionario.setSalario(2000);
+            funcionario.setTelefone("telefone");
+
+            System.out.println(objetoRemoto.create(funcionario));
+                        
+>>>>>>> parent of ef3d768... Cadastro de Cliente Finalizado
         }catch(RemoteException e){
             System.out.println(e.getMessage());
         }catch(NotBoundException e){

@@ -14,9 +14,15 @@ import java.util.Date;
  *
  * @author Admin
  */
+
+   
+
 public class OrdemServico implements Serializable {
-    private int idOrdemServico, idFuncionario, idCliente, idVenda;
-    private Date dataExp, dataConclusao;
+    private int idOrdemServico, idFuncionario,idServico,idVenda;
+    private String Descricao;
+    private boolean completado;
+
+    private Date dataInicio, dataFim;//, dataConclusao;
 
     public int getIdOrdemServico() {
         return idOrdemServico;
@@ -34,12 +40,12 @@ public class OrdemServico implements Serializable {
         this.idFuncionario = idFuncionario;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getIdServico() {
+        return idServico;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setIdServico(int idServico) {
+        this.idServico = idServico;
     }
 
     public int getIdVenda() {
@@ -50,21 +56,37 @@ public class OrdemServico implements Serializable {
         this.idVenda = idVenda;
     }
 
-    public Date getDataExp() {
-        return dataExp;
+    public String getDescricao() {
+        return Descricao;
     }
 
-    public void setDataExp(Date dataExp) {
-        this.dataExp = dataExp;
+    public void setDescricao(String Descricao) {
+        this.Descricao = Descricao;
     }
 
-    public Date getDataConclusao() {
-        return dataConclusao;
+    public boolean isCompletado() {
+        return completado;
     }
 
-    public void setDataConclusao(Date dataConclusao) {
-        this.dataConclusao = dataConclusao;
+    public void setCompletado(boolean completado) {
+        this.completado = completado;
     }
-    
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
+    }
+
     
 }

@@ -6,6 +6,7 @@
 package rmi.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
@@ -13,9 +14,9 @@ import java.io.Serializable;
  */
 public class Servico implements Serializable {
     private int idServico;
-    private OrdemServico ordemServico;
     private String descricao;
-    private float valor;
+    
+    
 
     public int getIdServico() {
         return idServico;
@@ -23,14 +24,6 @@ public class Servico implements Serializable {
 
     public void setIdServico(int idServico) {
         this.idServico = idServico;
-    }
-
-    public OrdemServico getOrdemServico() {
-        return ordemServico;
-    }
-
-    public void setOrdemServico(OrdemServico ordemServico) {
-        this.ordemServico = ordemServico;
     }
 
     public String getDescricao() {
@@ -41,13 +34,5 @@ public class Servico implements Serializable {
         this.descricao = descricao;
     }
 
-    public float getValor() {
-        return valor;
-    }
-
-    public void setValor(float valor) {
-        this.valor = valor;
-    }
-    
     
 }

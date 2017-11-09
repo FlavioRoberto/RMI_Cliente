@@ -7,25 +7,63 @@ package rmi.View;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import javax.swing.JOptionPane;
 import rmi.Interface.IControllerBase;
 import rmi.Model.Cliente;
-import rmi.Model.Funcionario;
 import rmi.Util.conexao_server;
 
 /**
  *
- * @author Bruno
+ * @author Guilherme Wander
  */
-public class View_CadastroCliente extends javax.swing.JFrame {
+public class View_CadastroCliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form View_CadastroCliente
      */
     public View_CadastroCliente() {
         initComponents();
+    }
+    
+    private void valoresDosCampos(){
+        String nome = TextField_Nome.getText().toString();
+        String cpf = FormattedTextField_CPF.getText().toString();
+        String rg = FormattedTextField_RG.getText().toString();
+        String telefone = FormattedTextField_Telefone.getText().toString();
+        String celular = FormattedTextField_Celular.getText().toString();
+        
+        if(!nome.equals(null) && !cpf.equals(null) && !rg.equals(null) && 
+                !telefone.equals(null)){
+            if(telefone.length() < 10 || celular.length() < 11){
+               JOptionPane.showMessageDialog(null, "Telefone ou celular incompletos!", null, JOptionPane.ERROR_MESSAGE); 
+            }else{
+                cadastraCliente(nome, cpf, rg, telefone, celular);
+            }      
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void cadastraCliente(String nome, String cpf, String rg, String telefone, String celular){
+        try{
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
+            //chama metodo do servidor
+            System.out.println("Cadastrando...");
+            Cliente cliente = new Cliente();
+            cliente.setNome(nome);
+            cliente.setCpf(cpf);
+            cliente.setRg(rg);
+            cliente.setTelefone(telefone);
+            cliente.setCelular(celular);
+            cliente.setTipo("Pessoa Física");
+            
+            JOptionPane.showMessageDialog(null, objetoRemoto.create(cliente), null,JOptionPane.INFORMATION_MESSAGE);            
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        } 
     }
 
     /**
@@ -37,51 +75,38 @@ public class View_CadastroCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        Label_Cadastro_de_Cliente = new javax.swing.JLabel();
-        Btn_Cadastrar = new javax.swing.JButton();
-        FormattedTextField_Telefone = new javax.swing.JFormattedTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         TextField_Nome = new javax.swing.JTextField();
-        FormattedTextField_RG = new javax.swing.JFormattedTextField();
         FormattedTextField_CPF = new javax.swing.JFormattedTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        ComboBox_Tipo = new javax.swing.JComboBox();
+        FormattedTextField_RG = new javax.swing.JFormattedTextField();
+        FormattedTextField_Telefone = new javax.swing.JFormattedTextField();
+        FormattedTextField_Celular = new javax.swing.JFormattedTextField();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setTitle("Cadastro Cliente");
 
-        jLabel11.setText("Telefone:");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Cadastro de Cliente");
 
-        jLabel12.setText("Tipo:");
+        jLabel2.setText("Nome:");
 
-        Label_Cadastro_de_Cliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Label_Cadastro_de_Cliente.setText("Cadastro de Cliente");
+        jLabel3.setText("Cpf:");
 
-        Btn_Cadastrar.setText("Cadastrar");
-        Btn_Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("Rg:");
+
+        jLabel5.setText("Telefone:");
+
+        jLabel7.setText("Celular:");
+
+        TextField_Nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_CadastrarActionPerformed(evt);
-            }
-        });
-
-        try {
-            FormattedTextField_Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel8.setText("Nome:");
-
-        try {
-            FormattedTextField_RG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        FormattedTextField_RG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FormattedTextField_RGActionPerformed(evt);
+                TextField_NomeActionPerformed(evt);
             }
         });
 
@@ -91,175 +116,118 @@ public class View_CadastroCliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        jLabel9.setText("CPF:");
+        try {
+            FormattedTextField_RG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        jLabel10.setText("RG:");
+        try {
+            FormattedTextField_Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        ComboBox_Tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Pessoa Física", "Pessoa Jurídica" }));
+        try {
+            FormattedTextField_Celular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Label_Cadastro_de_Cliente)
-                .addGap(191, 191, 191))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(166, 166, 166)
+                                .addComponent(jButton1))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(ComboBox_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(141, 141, 141)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(Btn_Cadastrar)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TextField_Nome, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(0, 345, Short.MAX_VALUE))
+                            .addComponent(FormattedTextField_RG)
+                            .addComponent(FormattedTextField_Telefone)
+                            .addComponent(FormattedTextField_Celular))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Label_Cadastro_de_Cliente)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FormattedTextField_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FormattedTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11)
-                    .addComponent(FormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(Btn_Cadastrar)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Btn_CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CadastrarActionPerformed
-        valoresDosCampos();
-    }//GEN-LAST:event_Btn_CadastrarActionPerformed
-
-    private void FormattedTextField_RGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormattedTextField_RGActionPerformed
+    private void TextField_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_NomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FormattedTextField_RGActionPerformed
+    }//GEN-LAST:event_TextField_NomeActionPerformed
 
-    private void valoresDosCampos(){
-        String nome = TextField_Nome.getText().toString();
-        String cpf = FormattedTextField_CPF.getText().toString();
-        String rg = FormattedTextField_RG.getText().toString();
-        String telefone = FormattedTextField_Telefone.getText().toString();
-        String opcao = ComboBox_Tipo.getSelectedItem().toString();
-        String tipo = null;
-        if(opcao.equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "É necessário escolher um tipo!", null,JOptionPane.ERROR_MESSAGE);
-        }else if(opcao.equals("Pessoa Física")){
-            tipo = "Pessoa Física";
-        }else if(opcao.equals("Pessoa Jurídica")){
-            tipo = "Pessoa Jurídica";
-        }
-        
-        if(!nome.equals(null) && !cpf.equals(null) && !rg.equals(null) && 
-                !telefone.equals(null) && !tipo.equals(null)){
-            cadastraCliente(nome, cpf, rg, telefone, tipo);
-        }else{
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", null,JOptionPane.ERROR_MESSAGE);
-        }
-    }
-     
-    private void cadastraCliente(String nome, String cpf, String rg, String telefone, String tipo){
-        try{
-            //criar objeto da interface, usa o lookpu para pegar a chave
-            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
-            //chama metodo do servidor
-            System.out.println("Cadastrando...");
-            Cliente cliente = new Cliente();
-            cliente.setNome(nome);
-            cliente.setCpf(cpf);
-            cliente.setRg(rg);
-            cliente.setTelefone(telefone);
-            cliente.setTipo(tipo);
-            
-            JOptionPane.showMessageDialog(null, objetoRemoto.create(cliente), null,JOptionPane.INFORMATION_MESSAGE);            
-        }catch(RemoteException e){
-            System.out.println(e.getMessage());
-        }catch(NotBoundException e){
-            System.out.println(e.getMessage());
-        } 
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(View_CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        valoresDosCampos();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new View_CadastroCliente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_Cadastrar;
-    private javax.swing.JComboBox ComboBox_Tipo;
     private javax.swing.JFormattedTextField FormattedTextField_CPF;
+    private javax.swing.JFormattedTextField FormattedTextField_Celular;
     private javax.swing.JFormattedTextField FormattedTextField_RG;
     private javax.swing.JFormattedTextField FormattedTextField_Telefone;
-    private javax.swing.JLabel Label_Cadastro_de_Cliente;
     private javax.swing.JTextField TextField_Nome;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

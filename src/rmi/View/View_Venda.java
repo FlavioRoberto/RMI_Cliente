@@ -5,6 +5,32 @@
  */
 package rmi.View;
 
+<<<<<<< HEAD
+import Application.formataData;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.util.Date;
+import java.util.Random;
+import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
+import rmi.Model.OrdemServico;
+import rmi.Model.Pessoa;
+import rmi.Model.Produto;
+import rmi.Model.Venda;
+import rmi.Util.conexao_server;
+import static rmi.View.Login.IDFUNCIONARIO;
+=======
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import javax.swing.JOptionPane;
+import rmi.Interface.IControllerBase;
+import rmi.Model.Cliente;
+import rmi.Model.Pessoa;
+import rmi.Model.Produto;
+import rmi.Util.conexao_server;
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+
 /**
  *
  * @author Bruno
@@ -14,10 +40,20 @@ public class View_Venda extends javax.swing.JFrame {
     /**
      * Creates new form View_Venda
      */
+<<<<<<< HEAD
+    private int IDPessoa;
+    private int IDCliente;
+    private int IDVenda;
+
+=======
+    
+    private int IDPessoa;
+    
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     public View_Venda() {
         initComponents();
         Panel_Venda.setVisible(false);
-        Label_ProdutoNaoEncontrado.setVisible(false);
+
     }
 
     /**
@@ -34,19 +70,15 @@ public class View_Venda extends javax.swing.JFrame {
         TextField_Cpf = new javax.swing.JFormattedTextField();
         Btn_Pesquisar = new javax.swing.JButton();
         Panel_Venda = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         TextField_IDProduto = new javax.swing.JFormattedTextField();
-        btn_Adicionar = new javax.swing.JButton();
-        Label_ProdutoNaoEncontrado = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TextField_Quantidade = new javax.swing.JFormattedTextField();
         btn_GerarOrdem = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAutoRequestFocus(false);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Venda");
@@ -73,80 +105,57 @@ public class View_Venda extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Produto", "Preço", "Quantidade"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
         jLabel3.setText("ID do Produto:");
 
-        try {
-            TextField_IDProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        TextField_IDProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         TextField_IDProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextField_IDProdutoActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
+=======
         btn_Adicionar.setText("Adicionar");
+        btn_Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AdicionarActionPerformed(evt);
+            }
+        });
 
         Label_ProdutoNaoEncontrado.setForeground(new java.awt.Color(204, 0, 0));
         Label_ProdutoNaoEncontrado.setText("Produto não Encontrado!");
 
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
         jLabel4.setText("Quantidade:");
 
-        try {
-            TextField_Quantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        TextField_Quantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         btn_GerarOrdem.setText("Gerar Ordem");
+        btn_GerarOrdem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_GerarOrdemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Panel_VendaLayout = new javax.swing.GroupLayout(Panel_Venda);
         Panel_Venda.setLayout(Panel_VendaLayout);
         Panel_VendaLayout.setHorizontalGroup(
             Panel_VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_VendaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Panel_VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(Panel_VendaLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(TextField_IDProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(TextField_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Adicionar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_VendaLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Label_ProdutoNaoEncontrado)
-                        .addGap(211, 211, 211)))
-                .addContainerGap())
-            .addGroup(Panel_VendaLayout.createSequentialGroup()
-                .addGap(241, 241, 241)
+                .addGap(237, 237, 237)
                 .addComponent(btn_GerarOrdem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_VendaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(TextField_IDProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(TextField_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144))
         );
         Panel_VendaLayout.setVerticalGroup(
             Panel_VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,15 +165,10 @@ public class View_Venda extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(TextField_IDProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(TextField_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Adicionar))
-                .addGap(18, 18, 18)
-                .addComponent(Label_ProdutoNaoEncontrado)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_GerarOrdem)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -198,16 +202,19 @@ public class View_Venda extends javax.swing.JFrame {
                     .addComponent(Btn_Pesquisar))
                 .addGap(18, 18, 18)
                 .addComponent(Panel_Venda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PesquisarActionPerformed
-        String cpf = TextField_Cpf.getText().toString();
-        //se o cpf existir, o Panel de venda é aberto
-        Panel_Venda.setVisible(true);
+<<<<<<< HEAD
+        valoresDosCampos();
+=======
+        valoresDosCampos();       
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     }//GEN-LAST:event_Btn_PesquisarActionPerformed
 
     private void TextField_CpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_CpfActionPerformed
@@ -218,6 +225,266 @@ public class View_Venda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextField_IDProdutoActionPerformed
 
+<<<<<<< HEAD
+    private void btn_GerarOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GerarOrdemActionPerformed
+        pesquisaProduto();
+    }//GEN-LAST:event_btn_GerarOrdemActionPerformed
+
+    private void valoresDosCampos() {
+        String cpf = TextField_Cpf.getText().toString();
+        if (!cpf.equals(null)) {
+            pesquisaPessoa(cpf);
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário preencher o campo!",
+                    null, JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void pesquisaPessoa(String cpf) {
+        try {
+            Pessoa pessoa = new Pessoa();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("pessoa");
+=======
+    private void btn_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdicionarActionPerformed
+        pesquisaProduto();
+    }//GEN-LAST:event_btn_AdicionarActionPerformed
+
+    private void valoresDosCampos(){
+       String cpf = TextField_Cpf.getText().toString();
+       if(!cpf.equals(null)){
+           pesquisaPessoa(cpf);
+       }else{
+           JOptionPane.showMessageDialog(null, "É necessário preencher o campo!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+       }
+    }
+    
+    private void pesquisaPessoa(String cpf){
+        try{
+            Pessoa pessoa = new Pessoa();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("pessoa");
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+            System.out.println("Consultando...");
+            pessoa = (Pessoa) objetoRemoto.findBy("cpf", cpf);
+            //Passa o id da pessoa para o atributo
+            IDPessoa = pessoa.getIdPessoa();
+<<<<<<< HEAD
+            if (IDPessoa == 0) {
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!",
+                        null, JOptionPane.ERROR_MESSAGE);
+            } else {
+                //se o cpf de pessoa for encontrado, é pesquisado se ele corresponde a uma cliente
+                pesquisaCliente(IDPessoa);
+            }
+
+        } catch (RemoteException e) {
+            System.out.println(e.getMessage());
+        } catch (NotBoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void pesquisaCliente(int idPessoa) {
+        try {
+            Cliente cliente = new Cliente();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("cliente");
+            System.out.println("Consultando Cliente...");
+            cliente = (Cliente) objetoRemoto.findBy("Pessoa_idPessoa", idPessoa);
+            IDCliente = cliente.getIdCliente();
+            if (IDCliente == 0) {
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!",
+                        null, JOptionPane.ERROR_MESSAGE);
+            } else if (cliente.getIdCliente() != 0) {
+                //se o id for encontrado, os campos para edição são ativados
+                Panel_Venda.setVisible(true);
+            }
+
+        } catch (RemoteException e) {
+            System.out.println(e.getMessage());
+        } catch (NotBoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void pesquisaProduto() {
+        try {
+            String aux = TextField_IDProduto.getText().toString();
+            String aux2 = TextField_Quantidade.getText().toString();
+            int idProduto, quantidade;
+            if (aux.equals("") || aux2.equals("")) {
+                JOptionPane.showMessageDialog(null, "Campos vazios!",
+                        null, JOptionPane.ERROR_MESSAGE);
+            } else {
+                //Converte a chave para Int
+                idProduto = Integer.parseInt(aux);
+                quantidade = Integer.parseInt(aux2);
+
+                if (idProduto > 0 && quantidade > 0) {
+                    Produto produto = new Produto();
+                    //criar objeto da interface, usa o lookpu para pegar a chave
+                    //conexa_server possui o ip e o registry para definir a conexao com o server
+                    IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("produto");
+                    System.out.println("Consultando Produto...");
+                    produto = (Produto) objetoRemoto.findBy("idProduto", idProduto);
+                    if (produto.getIdProduto() == 0) {
+                        JOptionPane.showMessageDialog(null, "Produto não encontrado!",
+                                null, JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        geraVenda(idProduto, quantidade);
+                    }
+                }
+
+            }
+        } catch (RemoteException e) {
+            System.out.println(e.getMessage());
+        } catch (NotBoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private int geraIdVenda() {
+        Random gerador = new Random();
+	IDVenda = gerador.nextInt(1000);
+        //System.out.println("Chave: "+idVenda);
+        return IDVenda;
+    }
+
+    private void geraVenda(int idProduto, int quantidade) {
+        try {
+
+            Venda venda = new Venda();
+            String vendaGerada;
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("venda");
+
+            //recebe o idVenda
+            venda.setIdVenda(geraIdVenda());
+            venda.setCliente_idCliente(IDCliente);
+            venda.setProduto_idProduto(idProduto);
+            venda.setQuantidade(quantidade);
+
+            System.out.println("Gerando venda...");
+
+            vendaGerada = objetoRemoto.create(venda);
+
+            geraOrdem(IDFUNCIONARIO, IDVenda);
+        } catch (RemoteException e) {
+            System.out.println(e.getMessage());
+        } catch (NotBoundException e) {
+=======
+            if(IDPessoa == 0){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else{
+                //se o cpf de pessoa for encontrado, é pesquisado se ele corresponde a uma cliente
+                pesquisaCliente(IDPessoa);
+            }
+                                   
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private void pesquisaCliente(int idPessoa){
+        try{
+            Cliente cliente = new Cliente();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("cliente");
+            System.out.println("Consultando Cliente...");
+            cliente = (Cliente) objetoRemoto.findBy("Pessoa_idPessoa", idPessoa);
+            if(cliente.getIdCliente() == 0){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else if(cliente.getIdCliente() != 0){
+                //se o id for encontrado, os campos para edição são ativados
+                Panel_Venda.setVisible(true);
+            }
+                                   
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private void pesquisaProduto(){       
+        try{
+            String aux = TextField_IDProduto.getText().toString();
+            int idProduto;
+            if(aux.equals(null)){
+                JOptionPane.showMessageDialog(null, "Produto não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+            }else{
+                //Converte a chave para Int
+                idProduto = Integer.parseInt(aux);
+                
+                Produto produto = new Produto();
+                //criar objeto da interface, usa o lookpu para pegar a chave
+                //conexa_server possui o ip e o registry para definir a conexao com o server
+                IControllerBase objetoRemoto =(IControllerBase)conexao_server.conexao().lookup("produto");
+                System.out.println("Consultando Produto...");
+                produto = (Produto) objetoRemoto.findBy("idProduto", idProduto);
+                if(produto.getIdProduto() == 0){
+                    JOptionPane.showMessageDialog(null, "Produto não encontrado!", 
+                        null,JOptionPane.ERROR_MESSAGE);
+                }else{
+                    
+                }
+            }                        
+        }catch(RemoteException e){
+            System.out.println(e.getMessage());
+        }catch(NotBoundException e){
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
+            System.out.println(e.getMessage());
+        }
+    }
+    
+<<<<<<< HEAD
+    private void geraOrdem(int idFuncionario, int idVenda){
+        try {
+
+            OrdemServico ordem = new OrdemServico();
+            //criar objeto da interface, usa o lookpu para pegar a chave
+            //conexa_server possui o ip e o registry para definir a conexao com o server
+            IControllerBase objetoRemoto = (IControllerBase) conexao_server.conexao().lookup("ordem_servico");
+            
+            //recebe a data atual
+            Date data = formataData.dataAtual();
+            
+            ordem.setDataExp(data);
+            ordem.setIdFuncionario(IDFUNCIONARIO);
+            //Estado = 0 - incompleto, 1 - completo 
+            ordem.setEstado(0);
+            ordem.setVendaId(idVenda);
+  
+
+            System.out.println("Gerando Ordem de serviço...");
+
+            JOptionPane.showMessageDialog(null, objetoRemoto.create(ordem),
+                                null, JOptionPane.INFORMATION_MESSAGE);
+
+            
+        } catch (RemoteException e) {
+            System.out.println(e.getMessage());
+        } catch (NotBoundException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
+    }
+
+=======
+>>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
     /**
      * @param args the command line arguments
      */
@@ -244,7 +511,7 @@ public class View_Venda extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(View_Venda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -255,18 +522,14 @@ public class View_Venda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Pesquisar;
-    private javax.swing.JLabel Label_ProdutoNaoEncontrado;
     private javax.swing.JPanel Panel_Venda;
     private javax.swing.JFormattedTextField TextField_Cpf;
     private javax.swing.JFormattedTextField TextField_IDProduto;
     private javax.swing.JFormattedTextField TextField_Quantidade;
-    private javax.swing.JButton btn_Adicionar;
     private javax.swing.JButton btn_GerarOrdem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
