@@ -13,13 +13,8 @@ import java.util.Date;
  * @author Admin
  */
 public class Servico implements Serializable {
-<<<<<<< HEAD
     private int idServico;
     private String descricao;
-=======
-    private int idServico,idOS;
-    private Date dataConclusao;
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     
     
 
@@ -31,7 +26,6 @@ public class Servico implements Serializable {
         this.idServico = idServico;
     }
 
-<<<<<<< HEAD
     public String getDescricao() {
         return descricao;
     }
@@ -41,21 +35,4 @@ public class Servico implements Serializable {
     }
 
     
-=======
-    public int getIdOS() {
-        return idOS;
-    }
-
-    public void setIdOS(int idOS) {
-        this.idOS = idOS;
-    }
-
-    public Date getDataConclusao() {
-        return dataConclusao;
-    }
-
-    public void setDataConclusao(Date dataConclusao) {
-        this.dataConclusao = dataConclusao;
-    } 
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 }

@@ -27,10 +27,6 @@ public class View_Producao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         Button_Ordens = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -55,25 +51,11 @@ public class View_Producao extends javax.swing.JFrame {
                 Button_EncerraSessao3ActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
-=======
-=======
-        jLabel1 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Tela Producao");
->>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,25 +70,12 @@ public class View_Producao extends javax.swing.JFrame {
                 .addGap(0, 101, Short.MAX_VALUE)
                 .addComponent(Button_EncerraSessao3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92))
-<<<<<<< HEAD
-=======
-=======
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(jLabel1)
-                .addContainerGap(167, Short.MAX_VALUE))
->>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
                 .addGap(31, 31, 31)
                 .addComponent(Button_Ordens, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -131,17 +100,6 @@ public class View_Producao extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_Button_EncerraSessao3ActionPerformed
 
-<<<<<<< HEAD
-=======
-=======
-                .addContainerGap(275, Short.MAX_VALUE))
-        );
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
->>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     /**
      * @param args the command line arguments
      */
@@ -178,10 +136,6 @@ public class View_Producao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     private javax.swing.JButton Button_EncerraSessao;
     private javax.swing.JButton Button_EncerraSessao1;
     private javax.swing.JButton Button_EncerraSessao2;
@@ -189,11 +143,5 @@ public class View_Producao extends javax.swing.JFrame {
     private javax.swing.JButton Button_Ordens;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
-<<<<<<< HEAD
-=======
-=======
-    private javax.swing.JLabel jLabel1;
->>>>>>> 32bb49736aca22440f27ecf640603e5f8caf2148
->>>>>>> ac075cdf18db8bc92564ad2346d0b69ee69ac56e
     // End of variables declaration//GEN-END:variables
 }
